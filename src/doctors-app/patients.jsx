@@ -6,7 +6,7 @@ const recentPatients = [
       patientName: "paul williams",
       id: "1",
       gender: "male",
-      lastVisited: "12/12/2021",
+      visited: "12/12/2021",
       action: "Completed",
     },
     {
@@ -14,7 +14,7 @@ const recentPatients = [
       patientName: "paul williams",
       id: "2",
       gender: "male",
-      lastVisited: "12/12/2021",
+      visited: "12/12/2021",
       action: "Completed",
     },
     {
@@ -22,7 +22,7 @@ const recentPatients = [
       patientName: "paul williams",
       id: "3",
       gender: "male",
-      lastVisited: "12/12/2021",
+      visited: "12/12/2021",
       action: "Completed",
     },
     {
@@ -30,7 +30,7 @@ const recentPatients = [
       patientName: "paul williams",
       id: "4",
       gender: "male",
-      lastVisited: "12/12/2021",
+      visited: "12/12/2021",
       action: "Completed",
     },
     {
@@ -38,7 +38,7 @@ const recentPatients = [
       patientName: "paul williams",
       id: "5",
       gender: "male",
-      lastVisited: "12/12/2021",
+      visited: "12/12/2021",
       action: "Completed",
     },
   ];
@@ -57,7 +57,7 @@ const Patients = () => {
                         <span className="flex  justify-center items-center">{patient.patientName}</span>
 
                         <span className="flex  justify-center items-center">{patient.gender}</span>
-                        <span  className="flex  justify-center items-center">{patient.lastVisited}</span>
+                        <span  className="flex  justify-center items-center">{patient.visited}</span>
                         <span  className="flex  justify-center items-center">{patient.action}</span>
                       </div>
                     );
