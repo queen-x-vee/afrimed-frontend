@@ -163,8 +163,12 @@ const DoctorsDashboard = () => {
                   );
                 })}
               </div>
-              <div className=" pt-5 grid grid-cols-3 gap-y-10 gap-x-5">
-                <div className="col-span-2 bg-white p-3">
+              <div className="mt-10 pt-5 grid grid-cols-3 gap-y-10 gap-x-5">
+                <div className="col-span-2 ">
+                    <div>
+                        <span className="font-bold text-xl">Recent Patients</span>
+                    </div>
+                  <div className="bg-white p-4">
                   {appointmentPatients.map((patient) => {
                     return (
                       <div
@@ -192,8 +196,9 @@ const DoctorsDashboard = () => {
                       </div>
                     );
                   })}
+                  </div>
                 </div>
-                <div className="bg-white h-4/5 p-3 rounded-lg">
+                <div className="bg-white h-5/6 p-3 rounded-lg">
                     <Calendar/>
                 </div>
               </div>

@@ -47,7 +47,7 @@ function Calendar() {
         <div
           key={`day-${i}`}
           className={`day ${
-            i === currentDate.getDate() ? " bg-[#FF0000]" : ""
+            i === currentDate.getDate() ? " bg-[#FF0000] my-3" : "my-3"
           } ${
             selectedDate && selectedDate.getDate() === i ? "bg-gray-300" : ""
           }`}
@@ -82,29 +82,28 @@ function Calendar() {
 
     return (
       <div className="calendar">
-        <div className="flex justify-between items-center">
-       
-        <div className="header text-center font-bold">
-          {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
+        <div className="flex justify-between items-center border-b my-6 border-b-[#D2D2D2]">
+          <div className="header text-center font-bold">
+            {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
+          </div>
+          <div>
+            <button
+              className="mx-2 px-3 py-1  rounded"
+              onClick={prevMonth}
+            >
+              <img src={Backward} alt="backward" />
+            </button>
+            <button
+              className="px-3 py-1  rounded"
+              onClick={nextMonth}
+            >
+              <img src={Forward} alt="forward" />
+            </button>
+          </div>
         </div>
-        <div>
-       <button
-          className="mx-2 px-3 py-1 bg-blue-500 text-white rounded"
-          onClick={prevMonth}
-        >
-          <img src={Backward} alt="backward" />
-        </button>
-        <button
-          className="px-3 py-1 bg-blue-500 text-white rounded"
-          onClick={nextMonth}
-        >
-          <img src={Forward} alt="forward" />
-        </button>
-       </div>
-        </div>
-        <div className="days grid grid-cols-7 text-center">
+        <div className="days grid grid-cols-7 m-4 text-center">
           {daysOfWeek.map((day) => (
-            <div key={day} className="day">
+            <div key={day} className="day my-4">
               {day}
             </div>
           ))}
@@ -118,7 +117,7 @@ function Calendar() {
     <div>
       {renderCalendar()}
       {selectedDate && (
-        <div className="text-center mt-4">
+        <div className="text-center ">
           Selected Date: {selectedDate.toLocaleDateString()}
         </div>
       )}
