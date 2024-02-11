@@ -56,7 +56,7 @@ const appointmentPatients = [
 const Appointment = () => {
 
   const [appointment, setAppointment] = React.useState(true);
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = React.useState(true);
 
   const declineAppointment = () => {
     setAppointment(false);
@@ -110,7 +110,7 @@ const Appointment = () => {
                                 onClick={acceptAppointment}
                               />
                             </div>
-                            <div className="py-[9px] px-1.5 bg-[#FEEEEF] flex items-center justify-center">
+                            <div className="py-[9px]  px-1.5 bg-[#FEEEEF] flex items-center justify-center">
                               <img
                                 src={Decline}
                                 alt="decline"
@@ -122,15 +122,17 @@ const Appointment = () => {
                           )}
                           
                           {show&&(
-                            <div
+                           <div className="flex items-center justify-center">
+                             <div
                             className={
                               appointment
-                                ? "bg-[#DDFFEC] text-[#0A9D4C] py-1.5 px-2.5 "
+                                ? "bg-[#DDFFEC] text-[#0A9D4C] h-10 py-1.5 px-2.5  "
                                 : "bg-[#FEEEEF] text-[#FF5363] py-1.5 px-2.5"
                             }
                           >
                             {appointment ? "Accepted" : "Declined"}
                           </div>
+                           </div>
                           )}
                         </div>
                       );

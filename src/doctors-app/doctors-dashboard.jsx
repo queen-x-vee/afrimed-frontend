@@ -242,12 +242,12 @@ const DoctorsDashboard = () => {
                 </div>
               </div>
               <div className=" pt-2 grid grid-cols-3 gap-y-10 gap-x-5">
-                <div className="p-4 col-span-2 bg-white">
+                <div className="p-4 col-span-2 ">
                   {recentPatients.map((patient) => {
                     return (
                       <div
                         key={patient.id}
-                        className="grid grid-cols-4 my-7 gap-x-6 border-b border-gray-300"
+                        className="grid grid-cols-4 text-[#696969] font-normal  bg-white p-6 mb-2.5"
                       >
                         <span className="flex  justify-center items-center">
                           {patient.patientName}
