@@ -38,7 +38,7 @@ const socialRoutes = [
 
 const Navbar = () => {
   return (
-    <nav className=" hidden md:flex flex-col bg-[#fffff] h-full w-80 fixed top-0 left-0 overflow-y-auto shadow-sm px-10">
+    <nav className=" flex flex-col bg-[#fffff] h-full w-[8rem] md:w-80 fixed top-0 left-0 overflow-y-auto shadow-sm px-4 md:px-10">
       <div className="flex items-center justify-center mt-8 mb-14">
         <img src={Logo} alt="logo" />
       </div>
@@ -60,7 +60,7 @@ const Navbar = () => {
                 alt={route.label}
                 className="text-white "
               />
-              <span className=" font-normal text-base ">
+              <span className=" hidden md:block font-normal text-base ">
                 {route.label}
               </span>
             </NavLink>

@@ -142,17 +142,17 @@ const DoctorsDashboard = () => {
     <>
       <div className=" h-full flex m-0 p-0">
         <Navbar />
-        <main className="md:ml-[20rem]  w-full bg-[#F7F7F7] ">
+        <main className="ml-[8rem] md:ml-[20rem]  w-full bg-[#F7F7F7] ">
           <TopNavbar />
           <div>
           <div className="px-4">
             <div>
-              <div className=" pt-5 grid grid-cols-3 gap-y-10 gap-x-2">
+              <div className=" pt-5 grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-2">
                 {card.map((route, index) => {
                   return (
                     <div
                       key={index}
-                      className={`bg-white py-3 flex  flex-col  gap-y-5 rounded-xl p-2`}
+                      className={`bg-white py-3 flex   flex-col  gap-y-5 rounded-xl p-2`}
                     >
                       <div className="flex items-center gap-x-4">
                         <div
@@ -173,8 +173,8 @@ const DoctorsDashboard = () => {
                   );
                 })}
               </div>
-              <div className="mt-10 pt-5 grid grid-cols-3 gap-y-10 gap-x-5">
-                <div className="col-span-2 ">
+              <div className="mt-10 pt-5 grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-5">
+                <div className=" col-span-1 md:col-span-2 ">
                   <div>
                     <span className="font-bold text-xl">Recent Patients</span>
                   </div>
@@ -237,12 +237,12 @@ const DoctorsDashboard = () => {
                     })}
                   </div>
                 </div>
-                <div className="bg-white h-5/6 p-3 rounded-lg">
+                <div className="bg-white md:h-5/6 p-3 rounded-lg">
                   <Calendar />
                 </div>
               </div>
-              <div className=" pt-2 grid grid-cols-3 gap-y-10 gap-x-5">
-                <div className="p-4 col-span-2 ">
+              <div className=" pt-2 grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-5">
+                <div className="p-4 col-span-1 md:col-span-2 ">
                   {recentPatients.map((patient) => {
                     return (
                       <div
