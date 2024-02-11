@@ -127,7 +127,7 @@ const appointmentPatients = [
 
 const DoctorsDashboard = () => {
   const [appointment, setAppointment] = React.useState(true);
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = React.useState(true);
 
   const declineAppointment = () => {
     setAppointment(false);
