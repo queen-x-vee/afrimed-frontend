@@ -6,6 +6,8 @@ import First from "../assests/doctors-dashboard-assets/firstCard.svg";
 import Second from "../assests/doctors-dashboard-assets/secondCard.svg";
 import Third from "../assests/doctors-dashboard-assets/thirdCard.svg";
 import Fourth from "../assests/doctors-dashboard-assets/fourthCard.svg";
+import Accept from "../assests/doctors-dashboard-assets/accept.svg";
+import Decline from "../assests/doctors-dashboard-assets/decline.svg";
 //import Line from "../components/graph/Line.tsx";
 import Avatar from "../assests/doctors-dashboard-assets/avatar.svg";
 import Calendar from "../components/Calender";
@@ -129,6 +131,18 @@ const appointmentPatients = [
 ];
 
 const DoctorsDashboard = () => {
+  const [appointment, setAppointment] = React.useState(true);
+  const [show, setShow] = React.useState(false);
+
+  const declineAppointment = () => {
+    setAppointment(false);
+    setShow(true);
+  };
+  const acceptAppointment = () => {
+    setAppointment(true);
+    setShow(true);
+  };
+
   return (
     <>
       <div className=" h-full flex m-0 p-0">
@@ -165,41 +179,70 @@ const DoctorsDashboard = () => {
               </div>
               <div className="mt-10 pt-5 grid grid-cols-3 gap-y-10 gap-x-5">
                 <div className="col-span-2 ">
-                    <div>
-                        <span className="font-bold text-xl">Recent Patients</span>
-                    </div>
+                  <div>
+                    <span className="font-bold text-xl">Recent Patients</span>
+                  </div>
                   <div className="bg-white p-4">
-                  {appointmentPatients.map((patient) => {
-                    return (
-                      <div
-                        key={patient.id}
-                        className="flex justify-between my-7 "
-                      >
-                        <div className="flex justify-center items-center gap-x-1">
-                          <img
-                            src={patient.icon}
-                            alt={patient.label}
-                            className="w-12 h-12 rounded-full"
-                          />
-                          <div className="flex flex-col justify-center items-start gap-x-1">
-                            <span>{patient.patientName}</span>
-                            <span className="flex  justify-center items-center">
-                              {" "}
-                              {patient.age} {patient.gender}{" "}
-                              {patient.lastVisited}{" "}
-                            </span>
+                    {appointmentPatients.map((patient) => {
+                      return (
+                        <div
+                          key={patient.id}
+                          className="flex justify-between my-7 "
+                        >
+                          <div className="flex justify-center items-center gap-x-1">
+                            <img
+                              src={patient.icon}
+                              alt={patient.label}
+                              className="w-12 h-12 rounded-full"
+                            />
+                            <div className="flex flex-col justify-center items-start gap-x-1">
+                              <span>{patient.patientName}</span>
+                              <span className="flex  justify-center items-center">
+                                {" "}
+                                {patient.age} {patient.gender}{" "}
+                                {patient.lastVisited}{" "}
+                              </span>
+                            </div>
                           </div>
+
+                          {!show&& (
+                            <div className="flex gap-x-1">
+                            <div className="py-[9x] px-1.5 bg-[#DDFFEC]  flex items-center justify-center">
+                              <img
+                                src={Accept}
+                                alt="accept"
+                                onClick={acceptAppointment}
+                              />
+                            </div>
+                            <div className="py-[9x] px-1.5 bg-[#FEEEEF] flex items-center justify-center">
+                              <img
+                                src={Decline}
+                                alt="decline"
+                                onClick={declineAppointment}
+                              />
+                            </div>
+                          </div>
+
+                          )}
+                          
+                          {show&&(
+                            <div
+                            className={
+                              appointment
+                                ? "bg-[#DDFFEC] text-[#0A9D4C] py-1.5 px-2.5 "
+                                : "bg-[#FEEEEF] text-[#FF5363] py-1.5 px-2.5"
+                            }
+                          >
+                            {appointment ? "Accepted" : "Declined"}
+                          </div>
+                          )}
                         </div>
-                        <div className="flex justify-center items-center">
-                          {patient.action}
-                        </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
                   </div>
                 </div>
                 <div className="bg-white h-5/6 p-3 rounded-lg">
-                    <Calendar/>
+                  <Calendar />
                 </div>
               </div>
               <div className=" pt-2 grid grid-cols-3 gap-y-10 gap-x-5">

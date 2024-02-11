@@ -14,25 +14,19 @@ const socialRoutes = [
   },
   {
     icon: Appointment,
-    label: "About me",
-    href: "about-me",
+    label: "Appointments",
   },
   {
     icon: Patient,
-    label: "Home",
-    href: "/",
-
-    collapsible: true,
+    label: "Patients",
   },
   {
     icon: Message,
-    label: "About me",
-    href: "about-me",
+    label: "Messages",
   },
   {
     icon: Reports,
     label: "About me",
-    href: "about-me",
   },
 ];
 
