@@ -5,58 +5,65 @@ import Patient from "../assests/doctors-dashboard-assets/patient.svg";
 import Message from "../assests/doctors-dashboard-assets/message.svg";
 import Reports from "../assests/doctors-dashboard-assets/reports.svg";
 import Logo from "../assests/doctors-dashboard-assets/logo.svg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 
 const socialRoutes = [
   {
     icon: Dashboard,
     label: "Dashboard",
+    href: "/",
   },
   {
     icon: Appointment,
     label: "Appointments",
+    href: "/appointment",
   },
   {
     icon: Patient,
     label: "Patients",
+    href: "/patients",
   },
   {
     icon: Message,
     label: "Messages",
+    href: "/messages",
   },
   {
     icon: Reports,
-    label: "About me",
+    label: "Reports",
+    href: "/reports",
   },
 ];
 
 const Navbar = () => {
   return (
-    <nav className=" hidden md:flex flex-col bg-[#fffff] h-full w-80 fixed top-0 left-0 overflow-y-auto shadow-sm px-12">
+    <nav className=" hidden md:flex flex-col bg-[#fffff] h-full w-80 fixed top-0 left-0 overflow-y-auto shadow-sm px-10">
       <div className="flex items-center justify-center mt-8 mb-14">
-       <img src={Logo} alt="logo"  />
-       </div>
+        <img src={Logo} alt="logo" />
+      </div>
       <div className="flex flex-col gap-y-9 items-start mt-9 ">
-       
         {socialRoutes.map((route, index) => {
           return (
-            <Link
+            <NavLink
               to={route.href}
               key={index}
-              className="flex flex-row items-center gap-x-4"
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-[#5D34F3] text-white py-2.5 px-4 flex flex-row items-center gap-x-3 "
+                  : "flex flex-row items-center gap-x-3 py-2.5 px-4 text-[#696969] "
+              }
             >
               <img
                 key={index}
                 src={route.icon}
                 alt={route.label}
-                className="w-12 h-12"
+                className="text-white "
               />
-              <span
-                className="text-[#696969] font-medium text-2xl"
-              >
+              <span className=" font-normal text-base ">
                 {route.label}
               </span>
-            </Link>
+            </NavLink>
           );
         })}
       </div>

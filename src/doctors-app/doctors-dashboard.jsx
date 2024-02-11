@@ -5,7 +5,7 @@ import TopNavbar from "../components/TopNavbar";
 import First from "../assests/doctors-dashboard-assets/firstCard.svg";
 import Second from "../assests/doctors-dashboard-assets/secondCard.svg";
 import Third from "../assests/doctors-dashboard-assets/thirdCard.svg";
-import Fourth from "../assests/doctors-dashboard-assets/fourthCard.svg";
+//import Fourth from "../assests/doctors-dashboard-assets/fourthCard.svg";
 import Accept from "../assests/doctors-dashboard-assets/accept.svg";
 import Decline from "../assests/doctors-dashboard-assets/decline.svg";
 //import Line from "../components/graph/Line.tsx";
@@ -32,12 +32,7 @@ const card = [
     backgroundColor: "bg-[#FFDFE4]",
     figure: "129",
   },
-  {
-    icon: Fourth,
-    label: "Reports",
-    backgroundColor: "bg-[#E9FFE5]",
-    figure: "129",
-  },
+  
 ];
 
 const recentPatients = [
@@ -147,11 +142,12 @@ const DoctorsDashboard = () => {
     <>
       <div className=" h-full flex m-0 p-0">
         <Navbar />
-        <main className="md:ml-[20rem] px-4 w-full bg-[#F7F7F7] ">
+        <main className="md:ml-[20rem]  w-full bg-[#F7F7F7] ">
           <TopNavbar />
           <div>
+          <div className="px-4">
             <div>
-              <div className=" pt-5 grid grid-cols-4 gap-y-10 gap-x-2">
+              <div className=" pt-5 grid grid-cols-3 gap-y-10 gap-x-2">
                 {card.map((route, index) => {
                   return (
                     <div
@@ -273,6 +269,7 @@ const DoctorsDashboard = () => {
                 <div className="bg-white"></div>
               </div>
             </div>
+          </div>
           </div>
         </main>
       </div>

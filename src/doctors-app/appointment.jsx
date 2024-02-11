@@ -1,9 +1,148 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/Navbar";
+import Avatar from "../assests/doctors-dashboard-assets/avatar.svg";
+import Accept from "../assests/doctors-dashboard-assets/accept.svg";
+import Decline from "../assests/doctors-dashboard-assets/decline.svg";
+import TopNavbar from "../components/TopNavbar";
 
-const appointment = () => {
+const appointmentPatients = [
+  {
+    icon: Avatar,
+    patientName: "paul williams",
+    id: "1",
+    gender: "male",
+    age: "21",
+    lastVisited: "12/12/2021",
+    action: "Completed",
+  },
+  {
+    icon: Avatar,
+    patientName: "paul williams",
+    id: "2",
+    gender: "male",
+    age: "21",
+    lastVisited: "12/12/2021",
+    action: "Completed",
+  },
+  {
+    icon: Avatar,
+    patientName: "paul williams",
+    id: "3",
+    gender: "male",
+    age: "21",
+    lastVisited: "12/12/2021",
+    action: "Completed",
+  },
+  {
+    icon: Avatar,
+    patientName: "paul williams",
+    id: "4",
+    gender: "male",
+    age: "21",
+    lastVisited: "12/12/2021",
+    action: "Completed",
+  },
+  {
+    icon: Avatar,
+    patientName: "paul williams",
+    id: "5",
+    gender: "male",
+    age: "21",
+    lastVisited: "12/12/2021",
+    action: "Completed",
+  },
+];
+
+const Appointment = () => {
+
+  const [appointment, setAppointment] = React.useState(true);
+  const [show, setShow] = React.useState(false);
+
+  const declineAppointment = () => {
+    setAppointment(false);
+    setShow(true);
+  };
+  const acceptAppointment = () => {
+    setAppointment(true);
+    setShow(true);
+  };
+
   return (
-    <div>appointment</div>
-  )
-}
+    <>
+      <div className=" h-full flex m-0 p-0">
+        <Navbar />
+        <main className="md:ml-[20rem]  w-full bg-[#F7F7F7] ">
+          <TopNavbar/>
+        <div className="px-12">
+                <div className=" ">
+                  <div>
+                    <span className="font-bold text-xl">Recent Patients</span>
+                  </div>
+                  <div className="bg-white p-4">
+                    {appointmentPatients.map((patient) => {
+                      return (
+                        <div
+                          key={patient.id}
+                          className="flex justify-between my-7 "
+                        >
+                          <div className="flex justify-center items-center gap-x-1">
+                            <img
+                              src={patient.icon}
+                              alt={patient.label}
+                              className="w-12 h-12 rounded-full"
+                            />
+                            <div className="flex flex-col justify-center items-start gap-2">
+                              <span className="font-medium text-4xl tet-[#212529]">{patient.patientName}</span>
+                              <span className="font-normal text-2xl text-[#696969] flex  justify-center items-center">
+                                {" "}
+                                {patient.age} {patient.gender}{" "}
+                                {patient.lastVisited}{" "}
+                              </span>
+                            </div>
+                          </div>
 
-export default appointment
+                          {!show&& (
+                            <div className="flex items-center gap-1 justify-between">
+                            <div className="py-[9px] px-1.5 bg-[#DDFFEC]  flex items-center justify-center">
+                              <img
+                                src={Accept}
+                                alt="accept"
+                                onClick={acceptAppointment}
+                              />
+                            </div>
+                            <div className="py-[9px] px-1.5 bg-[#FEEEEF] flex items-center justify-center">
+                              <img
+                                src={Decline}
+                                alt="decline"
+                                onClick={declineAppointment}
+                              />
+                            </div>
+                          </div>
+
+                          )}
+                          
+                          {show&&(
+                            <div
+                            className={
+                              appointment
+                                ? "bg-[#DDFFEC] text-[#0A9D4C] py-1.5 px-2.5 "
+                                : "bg-[#FEEEEF] text-[#FF5363] py-1.5 px-2.5"
+                            }
+                          >
+                            {appointment ? "Accepted" : "Declined"}
+                          </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                
+              </div>
+        </main>
+      </div>
+    </>
+  );
+};
+
+export default Appointment;

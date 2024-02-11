@@ -1,72 +1,114 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/Navbar";
+import TopNavbar from "../components/TopNavbar";
 
 const recentPatients = [
-    {
-      
-      patientName: "paul williams",
-      id: "1",
-      gender: "male",
-      visited: "12/12/2021",
-      action: "Completed",
-    },
-    {
-     
-      patientName: "paul williams",
-      id: "2",
-      gender: "male",
-      visited: "12/12/2021",
-      action: "Completed",
-    },
-    {
-      
-      patientName: "paul williams",
-      id: "3",
-      gender: "male",
-      visited: "12/12/2021",
-      action: "Completed",
-    },
-    {
-     
-      patientName: "paul williams",
-      id: "4",
-      gender: "male",
-      visited: "12/12/2021",
-      action: "Completed",
-    },
-    {
-     
-      patientName: "paul williams",
-      id: "5",
-      gender: "male",
-      visited: "12/12/2021",
-      action: "Completed",
-    },
-  ];
+  {
+    patientName: "paul williams",
+    visitID: "1",
+    date: "12/12/2021",
+    gender: "male",
+    disease: "Heart attack",
+    status: "Completed",
+    action: "Completed",
+  },
+  {
+    patientName: "paul williams",
+    visitID: "2",
+    date: "12/12/2021",
+    gender: "male",
+    disease: "Heart attack",
+    status: "Completed",
+    action: "Completed",
+  },
+  {
+    patientName: "paul williams",
+    visitID: "3",
+    date: "12/12/2021",
+    gender: "male",
+    disease: "Heart attack",
+    status: "Completed",
+    action: "Completed",
+  },
+  {
+    patientName: "paul williams",
+    visitID: "4",
+    date: "12/12/2021",
+    gender: "male",
+    disease: "Heart attack",
+    status: "Completed",
+    action: "Completed",
+  },
+  {
+    patientName: "paul williams",
+    visitID: "5",
+    date: "12/12/2021",
+    gender: "male",
+    disease: "Heart attack",
+    status: "Completed",
+    action: "Completed",
+  },
+];
 
 const Patients = () => {
   return (
-    <div>
-        <div className=" pt-2 grid grid-cols-3 gap-y-10 gap-x-5">
-                <div className="p-4 col-span-2 bg-white">
-                  {recentPatients.map((patient) => {
-                    return (
-                      <div
-                        key={patient.id}
-                        className="grid grid-cols-4 my-7 gap-x-6 border-b border-gray-300"
-                      >
-                        <span className="flex  justify-center items-center">{patient.patientName}</span>
+    <>
+      <div className=" h-full flex m-0 p-0">
+        <Navbar />
+        <main className="md:ml-[20rem] w-full bg-[#F7F7F7] ">
+          <TopNavbar/>
+        <div className="px-4 ">
+         <div>
+         <div className="p-4  ">
+          <div className="grid grid-cols-7 my-7 gap-x-6  mb-2.5 bg-white p-6 font-medium text-lg text-[#696969]">
+            <span className="flex  justify-center items-center">Patient Names</span>
+            <span className="flex  justify-center items-center">Visit ID</span>
+            <span className="flex  justify-center items-center">Date</span>
+            <span className="flex  justify-center items-center">Gender</span>
+            <span className="flex  justify-center items-center">Disease</span>
+            <span className="flex  justify-center items-center">Status</span>
+            <span className="flex  justify-center items-center">Action</span>
+          </div>
+            {recentPatients.map((patient) => {
+              return (
+                <div
+                  key={patient.visitID}
+                  className="grid grid-cols-7 text-[#696969] font-normal  bg-white p-6 mb-2.5 "
+                >
+                  <span className="flex  justify-center items-center">
+                    {patient.patientName}
+                  </span>
+                  
+                  <span className="flex  justify-center items-center">
+                    {patient.visitID}
+                  </span>
 
-                        <span className="flex  justify-center items-center">{patient.gender}</span>
-                        <span  className="flex  justify-center items-center">{patient.visited}</span>
-                        <span  className="flex  justify-center items-center">{patient.action}</span>
-                      </div>
-                    );
-                  })}
+                  <span className="flex  justify-center items-center">
+                    {patient.date}
+                  </span>
+                  <span className="flex  justify-center items-center">
+                    {patient.gender}
+                  </span>
+                  <span className="flex  justify-center items-center">
+                    {patient.disease}
+                  </span>
+                  <span className="flex  justify-center items-center">
+                    {patient.status}
+                  </span>
+                  <span className="flex  justify-center items-center">
+                    {patient.action}
+                  </span>
                 </div>
-                <div className="bg-white"></div>
-              </div>
-    </div>
-  )
-}
+              );
+            })}
+          </div>
+         </div>
+          <div className="bg-white"></div>
+        </div>
+        </main>
+      </div>
+    </>
+  );
+};
 
-export default Patients
+export default Patients;
