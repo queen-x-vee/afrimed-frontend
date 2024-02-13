@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/doctors-components/Navbar";
 import {NavLink} from "react-router-dom";
 import Avatar from "../assests/doctors-dashboard-assets/avatar.svg";
 import Accept from "../assests/doctors-dashboard-assets/accept.svg";
 import Decline from "../assests/doctors-dashboard-assets/decline.svg";
 import Forward from "../assests/doctors-dashboard-assets/forward.svg";
-import TopNavbar from "../components/TopNavbar";
+import TopNavbar from "../components/doctors-components/TopNavbar";
 
 const appointmentPatients = [
   {

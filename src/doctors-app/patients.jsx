@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import TopNavbar from "../components/TopNavbar";
+import Navbar from "../components/doctors-components/Navbar";
+import TopNavbar from "../components/doctors-components/TopNavbar";
 
 const recentPatients = [
   {
@@ -58,9 +58,21 @@ const Patients = () => {
         <main className="md:ml-[20rem] w-full bg-[#F7F7F7] ">
           <TopNavbar/>
         <div className="px-4 ">
+          <div>
+            <div>
+              <span>Status:</span>
+              <button>All</button>
+              <button>New</button>
+              <button>Returning</button>
+
+            </div>
+            <div>
+
+            </div>
+          </div>
          <div>
          <div className="p-4  ">
-          <div className="grid grid-cols-7 my-7 gap-x-6  mb-2.5 bg-white p-6 font-medium text-lg text-[#696969]">
+          <div className="grid grid-cols-7 my-7 gap-x-6  mb-2.5 bg-[#EBEFF2] p-6 font-medium text-lg text-[#696969]">
             <span className="flex  justify-center items-center">Patient Names</span>
             <span className="flex  justify-center items-center">Visit ID</span>
             <span className="flex  justify-center items-center">Date</span>

@@ -1,6 +1,6 @@
 import React from "react";
-import Notifications from "../assests/doctors-dashboard-assets/notificationbell.svg";
-import Profile from "../assests/doctors-dashboard-assets/doctorsprofilepic.svg";
+import Notifications from "../../assests/doctors-dashboard-assets/notificationbell.svg";
+import Profile from "../../assests/doctors-dashboard-assets/doctorsprofilepic.svg";
 import { NavLink } from "react-router-dom";
 
 const pageRoutes = [
@@ -13,7 +13,7 @@ const pageRoutes = [
     href: "/appointment",
   },
   {
-    label: "Patients",
+    label: "Doctors",
     href: "/patients",
   },
   {
@@ -30,15 +30,15 @@ const TopNavbar = () => {
   return (
     <>
     <nav>
-      <div className=" md:hidden flex flex-row justify-between items-center px-11 py-6 bg-[#FFFFFF] mb-5 md:mb-10">
+      <div className=" md:hidden flex flex-row justify-between items-center p-4 bg-[#FFFFFF] mb-5 md:mb-10">
         {
           pageRoutes.map((route, index) => {
             return (
-              <div className="flex flex-row items-center gap-x-5" key={index}>
+              <div className="flex flex-row items-center " key={index}>
                 <NavLink to={route.href} className={({ isActive }) =>
                 isActive
-                  ? "border-b-4 border-b-[#5D34F3] text-black text-base py-2.5 px-4 flex flex-row items-center gap-x-3 "
-                  : "flex flex-row items-center gap-x-3 py-2.5 px-4 text-base text-black "
+                  ? "border-b-4 border-b-[#5D34F3] text-black text-base py-2.5 px-2 flex flex-row items-center gap-x-3 "
+                  : "flex flex-row items-center gap-x-3 py-2.5 px-2 text-base text-black "
               }>
                   {route.label}
                 </NavLink>
@@ -48,14 +48,10 @@ const TopNavbar = () => {
         }
       </div>
     </nav>
-
     <div className="flex flex-row justify-between items-center p-4 md:px-11 md:py-6 bg-[#FFFFFF] mb-5 md:mb-10">
       <div className="flex flex-col items-start">
         <span className="font-semibold text-lg md:text-2xl text-[#0D0D0F] mb-2">
-          Welcome Dr Taiwo
-        </span>
-        <span className="font-normal text-sm md:text-base text-[#0A9D4C]">
-          Heart Specialist
+        Hello John &#128075;
         </span>
       </div>
       <div className="flex flex-row gap-x-10 items-center">
@@ -67,7 +63,7 @@ const TopNavbar = () => {
             <img src={Profile} alt="profile" />
           </div>
           <div className="flex flex-col justify-center items-start gap-x-1">
-            <span className="text-base  font-medium">Taiwo Ojo</span>
+            <span className="text-base  font-medium">John Ade</span>
             <span className="text-xs md:text-sm text-[#000000]/70">
               30 years old
             </span>

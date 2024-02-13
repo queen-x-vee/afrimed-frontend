@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Forward from "../assests/doctors-dashboard-assets/calenderForward.svg";
-import Backward from "../assests/doctors-dashboard-assets/calenderBack.svg";
+import Forward from "../../assests/doctors-dashboard-assets/calenderForward.svg";
+import Backward from "../../assests/doctors-dashboard-assets/calenderBack.svg";
 
 function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());

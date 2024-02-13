@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/doctors-components/Navbar";
 import "../index.css";
-import TopNavbar from "../components/TopNavbar";
+import TopNavbar from "../components/doctors-components/TopNavbar";
 import First from "../assests/doctors-dashboard-assets/firstCard.svg";
 import Second from "../assests/doctors-dashboard-assets/secondCard.svg";
 import Third from "../assests/doctors-dashboard-assets/thirdCard.svg";
@@ -14,7 +14,7 @@ import Forward from "../assests/doctors-dashboard-assets/forward.svg";
 import FirstArticle from "../assests/doctors-dashboard-assets/firstArticle.svg";
 //import Line from "../components/graph/Line.tsx";
 import Avatar from "../assests/doctors-dashboard-assets/avatar.svg";
-import Calendar from "../components/Calender";
+import Calendar from "../components/doctors-components/Calender";
 
 const card = [
   {

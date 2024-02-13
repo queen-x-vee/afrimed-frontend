@@ -1,4 +1,4 @@
-import ResizableBox from "./ResizableBox";
+import ResizableBox from "./ResizableBox.js";
 
 import useDemoConfig from "./useDemoConfig.tsx";
 import React from "react";

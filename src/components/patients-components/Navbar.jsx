@@ -1,10 +1,9 @@
 import React from "react";
-import Dashboard from "../assests/doctors-dashboard-assets/dashboard.svg";
-import Appointment from "../assests/doctors-dashboard-assets/appointments.svg";
-import Patient from "../assests/doctors-dashboard-assets/patient.svg";
-import Message from "../assests/doctors-dashboard-assets/message.svg";
-import Reports from "../assests/doctors-dashboard-assets/reports.svg";
-import Logo from "../assests/doctors-dashboard-assets/logo.svg";
+import Dashboard from "../../assests/doctors-dashboard-assets/dashboard.svg";
+import Appointment from "../../assests/doctors-dashboard-assets/appointments.svg";
+import Message from "../../assests/doctors-dashboard-assets/message.svg";
+import Reports from "../../assests/doctors-dashboard-assets/reports.svg";
+import Logo from "../../assests/doctors-dashboard-assets/logo.svg";
 import { NavLink } from "react-router-dom";
 
 
@@ -12,27 +11,22 @@ const socialRoutes = [
   {
     icon: Dashboard,
     label: "Dashboard",
-    href: "/",
+    href: "/patient",
   },
   {
     icon: Appointment,
-    label: "Appointments",
-    href: "/appointment",
-  },
-  {
-    icon: Patient,
-    label: "Patients",
-    href: "/patients",
+    label: "Doctors",
+    href: "patient//doctors",
   },
   {
     icon: Message,
     label: "Messages",
-    href: "/messages",
+    href: "patient/messages",
   },
   {
     icon: Reports,
     label: "Reports",
-    href: "/reports",
+    href: "patient/reports",
   },
 ];
 
