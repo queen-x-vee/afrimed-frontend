@@ -5,9 +5,12 @@ import TopNavbar from "../components/TopNavbar";
 import First from "../assests/doctors-dashboard-assets/firstCard.svg";
 import Second from "../assests/doctors-dashboard-assets/secondCard.svg";
 import Third from "../assests/doctors-dashboard-assets/thirdCard.svg";
+import {NavLink} from "react-router-dom";
 //import Fourth from "../assests/doctors-dashboard-assets/fourthCard.svg";
 import Accept from "../assests/doctors-dashboard-assets/accept.svg";
 import Decline from "../assests/doctors-dashboard-assets/decline.svg";
+import Arrow from "../assests/doctors-dashboard-assets/arrowup.svg"
+import Forward from "../assests/doctors-dashboard-assets/forward.svg";
 //import Line from "../components/graph/Line.tsx";
 import Avatar from "../assests/doctors-dashboard-assets/avatar.svg";
 import Calendar from "../components/Calender";
@@ -142,7 +145,7 @@ const DoctorsDashboard = () => {
     <>
       <div className=" h-full flex m-0 p-0">
         <Navbar />
-        <main className="ml-[8rem] md:ml-[20rem]  w-full bg-[#F7F7F7] ">
+        <main className="md:ml-[20rem]  w-full bg-[#F7F7F7] ">
           <TopNavbar />
           <div>
           <div className="px-4">
@@ -156,34 +159,48 @@ const DoctorsDashboard = () => {
                     >
                       <div className="flex items-center gap-x-4">
                         <div
-                          className={`${route.backgroundColor} p-4 rounded-full`}
+                          className={`${route.backgroundColor} p-3 md:p-4 rounded-full`}
                         >
                           <img
                             src={route.icon}
                             alt={route.label}
-                            className="w-12 h-12"
+                            className="w-10 h-10 md:w-12 md:h-12"
                           />
                         </div>
-                        <div className=" font-medium text-2xl">
+                        <div className=" font-medium text-xl md:text-2xl">
                           {route.label}
                         </div>
                       </div>
-                      <div>{route.figure}</div>
+                      <div className="flex items-center gap-x-2">
+                        <div className="font-medium text-xl md:text-3xl">{route.figure}</div>
+                        <div className="flex items-center gap-x-2">
+                          <span className="font-500 text-sm text-[#0A9D4C] flex">
+                            <img src={Arrow} alt="arrow" />
+                            {'40'}%
+                          </span>
+                          <span className="font-normal text-xs text-[#93939A]">from last week</span>
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
               </div>
               <div className="mt-10 pt-5 grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-5">
                 <div className=" col-span-1 md:col-span-2 ">
-                  <div>
-                    <span className="font-bold text-xl">Recent Patients</span>
+                <div className="flex items-center justify-between gap-x-5 mb-5 md:mb-10">
+                    <span className="font-medium text-lg md:text-2xl">Appointment Request</span>
+                    <NavLink>
+                    <button className="font-medium text-base text-[#1E4AF0] flex items-center">View all
+                    <img src={Forward} alt="forward" className="w-4 h-4 ml-1" />
+                    </button>
+                    </NavLink>
                   </div>
                   <div className="bg-white p-4">
                     {appointmentPatients.map((patient) => {
                       return (
                         <div
                           key={patient.id}
-                          className="flex justify-between my-7 "
+                          className="flex items-center justify-between my-7 "
                         >
                           <div className="flex justify-center items-center gap-x-1">
                             <img
@@ -192,8 +209,8 @@ const DoctorsDashboard = () => {
                               className="w-12 h-12 rounded-full"
                             />
                             <div className="flex flex-col justify-center items-start gap-x-1">
-                              <span>{patient.patientName}</span>
-                              <span className="flex  justify-center items-center">
+                              <span className="font-medium text-lg md:text-2xl  text-[#212529]">{patient.patientName}</span>
+                              <span className="font-normal text-base text-[#696969] flex  justify-center items-center">
                                 {" "}
                                 {patient.age} {patient.gender}{" "}
                                 {patient.lastVisited}{" "}
@@ -225,8 +242,8 @@ const DoctorsDashboard = () => {
                             <div
                             className={
                               appointment
-                                ? "bg-[#DDFFEC] text-[#0A9D4C] py-1.5 px-2.5 "
-                                : "bg-[#FEEEEF] text-[#FF5363] py-1.5 px-2.5"
+                                ? "bg-[#DDFFEC] text-[#0A9D4C] py-1.5 px-2.5 rounded "
+                                : "bg-[#FEEEEF] text-[#FF5363] py-1.5 px-2.5 rounded"
                             }
                           >
                             {appointment ? "Accepted" : "Declined"}
@@ -243,6 +260,14 @@ const DoctorsDashboard = () => {
               </div>
               <div className=" pt-2 grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-5">
                 <div className="p-4 col-span-1 md:col-span-2 ">
+                <div className="flex items-center justify-between gap-x-5 mt-5 mb-5 md:mt-10 md:mb-10">
+                    <span className="font-medium text-lg md:text-2xl">Recent Patients</span>
+                    <NavLink>
+                    <button className="font-medium text-base text-[#1E4AF0] flex items-center">View all
+                    <img src={Forward} alt="forward" className="w-4 h-4 ml-1" />
+                    </button>
+                    </NavLink>
+                  </div>
                   {recentPatients.map((patient) => {
                     return (
                       <div

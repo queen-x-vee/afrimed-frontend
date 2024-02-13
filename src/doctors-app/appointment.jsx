@@ -1,8 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import {NavLink} from "react-router-dom";
 import Avatar from "../assests/doctors-dashboard-assets/avatar.svg";
 import Accept from "../assests/doctors-dashboard-assets/accept.svg";
 import Decline from "../assests/doctors-dashboard-assets/decline.svg";
+import Forward from "../assests/doctors-dashboard-assets/forward.svg";
 import TopNavbar from "../components/TopNavbar";
 
 const appointmentPatients = [
@@ -76,7 +78,12 @@ const Appointment = () => {
         <div className="px-12">
                 <div className=" ">
                   <div>
-                    <span className="font-bold text-xl">Recent Patients</span>
+                    <span className="font-medium text-lg md:text-2xl">Appointment Request</span>
+                    <NavLink>
+                    <button className="text-base flex">View all
+                    <img src={Forward} alt="forward" className="w-4 h-4 ml-1" />
+                    </button>
+                    </NavLink>
                   </div>
                   <div className="bg-white p-4">
                     {appointmentPatients.map((patient) => {
