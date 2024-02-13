@@ -39,7 +39,7 @@ const PatientsDashboard = () => {
                 <div className="col-span-1 md:col-span-2 ">
                   <div className="">
                     <div className="rounded-[30px] bg-[#E2E4F9] flex items-center justify-around p-1.5 md:w-3/5 mx-auto">
-                      <button className="bg-[#5D34F3] text-white py-2.5 px-6 font-medium text-base rounded-[20px]">
+                      <button className="bg-[#5D34F3] text-white py-2.5 px-6 font-medium text-base rounded-[20px]" onClick={handleSubmit}>
                         Upload Image
                       </button>
                       <span className="text-xs md:text-lg">
