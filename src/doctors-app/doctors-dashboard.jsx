@@ -201,7 +201,7 @@ const DoctorsDashboard = () => {
                       <span className="font-medium text-lg md:text-2xl">
                         Appointment Request
                       </span>
-                      <NavLink>
+                      <NavLink to='/appointment'>
                         <button className="font-medium text-base text-[#1E4AF0] flex items-center">
                           View all
                           <img
@@ -282,7 +282,7 @@ const DoctorsDashboard = () => {
                       <span className="font-medium text-lg md:text-2xl">
                         Recent Patients
                       </span>
-                      <NavLink>
+                      <NavLink to='/patients'>
                         <button className="font-medium text-base text-[#1E4AF0] flex items-center">
                           View all
                           <img
