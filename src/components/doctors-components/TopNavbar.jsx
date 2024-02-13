@@ -10,19 +10,19 @@ const pageRoutes = [
   },
   {
     label: "Appointments",
-    href: "/doctor/appointments",
+    href: "/doctor-appointments",
   },
   {
     label: "Patients",
-    href: "/doctor/patients",
+    href: "/doctor-patients",
   },
   {
     label: "Messages",
-    href: "/doctor/messages",
+    href: "/doctor-messages",
   },
   {
     label: "Reports",
-    href: "/doctor/reports",
+    href: "/doctor-reports",
   },
 ];
 

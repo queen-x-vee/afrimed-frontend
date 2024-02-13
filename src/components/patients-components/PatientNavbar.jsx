@@ -16,17 +16,17 @@ const socialRoutes = [
   {
     icon: Appointment,
     label: "Doctors",
-    href: "/patient/doctors",
+    href: "/patient-doctors",
   },
   {
     icon: Message,
     label: "Messages",
-    href: "/patient/messages",
+    href: "/patient-messages",
   },
   {
     icon: Reports,
     label: "Reports",
-    href: "/patient/reports",
+    href: "/patient-reports",
   },
 ];
 

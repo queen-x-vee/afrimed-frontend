@@ -1,6 +1,6 @@
 import React from "react";
 import PatientNavbar from "../components/patients-components/PatientNavbar";
-import PatientTopNavbar from "../components/doctors-components/PatientTopNavbar";
+import PatientTopNavbar from "../components/patients-components/PatientTopNavbar";
 
 const recentPatients = [
   {

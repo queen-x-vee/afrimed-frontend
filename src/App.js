@@ -11,14 +11,14 @@ function App() {
   return (
     <Routes>
 
-      <Route path='/' element={<Signup/>}/>
-      <Route path="/doctor" element={<DoctorsDashboard />} />
-      <Route path="/doctor/patients" element={<Patients />} />
-      <Route path="/doctor/appointments" element={<Appointment />} />
+      <Route exact path='/' element={<Signup/>}/>
+      <Route exact path="/doctor" element={<DoctorsDashboard />} />
+      <Route exact path="/doctor-patients" element={<Patients />} />
+      <Route exact path="/doctor-appointments" element={<Appointment />} />
 
-      <Route path='/patient' element ={<PatientsDashboard/>}/>
-      <Route path="/patient/doctors" element={<Doctors/>} />
-      <Route path="/patient/messages" element={<Patients />} />
+      <Route exact path='/patient' element ={<PatientsDashboard/>}/>
+      <Route exact path="/patient-doctors" element={<Doctors/>} />
+      <Route exact path="/patient-messages" element={<Patients />} />
 
    
      

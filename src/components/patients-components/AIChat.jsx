@@ -20,11 +20,12 @@ function ChatComponent() {
 
   return (
     <div className="bg-white h-full">
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center ">
         <img src={AI} alt="AI" className="w-6 md:w-14" />
         <span>AI MEDIC</span>
       </div>
-      <div className=" flex-col justify-end items-end p-4">
+     <div className="flex flex-col items-end">
+     <div className=" self-end p-4">
         <div className="bg-[#5D34F3] mb-10 px-4 py-2.5 rounded-t-2xl rounded-l-2xl rounded-r-md mr-10 md:mr-14">
           <span className="text-xs">AI: </span>
           <span className="text-xs font-normal">
@@ -45,7 +46,8 @@ function ChatComponent() {
           </div>
         ))}
       </div>
-      <form onSubmit={handleMessageSubmit} className="chat-input">
+     </div>
+      <form onSubmit={handleMessageSubmit} className="self-end mb-0">
        <div className="flex flex-row justify-between items-center m-4 p-4 bg-[#F4F4F4] rounded-lg">
        <input
           type="text"

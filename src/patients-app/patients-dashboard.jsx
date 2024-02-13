@@ -29,7 +29,7 @@ const PatientsDashboard = () => {
 
   return (
     <>
-      <div className=" h-full flex m-0 p-0">
+      <div className=" h-full flex m-0 p-0 ">
         <PatientNavbar />
         <main className="md:ml-[20rem]  w-full bg-[#F7F7F7] ">
           <PatientTopNavbar />
