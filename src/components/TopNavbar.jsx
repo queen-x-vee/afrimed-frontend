@@ -49,12 +49,12 @@ const TopNavbar = () => {
       </div>
     </nav>
 
-    <div className="flex flex-row justify-between items-center px-11 py-6 bg-[#FFFFFF] mb-10">
-      <div className="flex flex-col justify-between gap-5 items-start">
-        <span className="font-semibold text-2xl text-[#0D0D0F]">
+    <div className="flex flex-row justify-between items-center p-4 md:px-11 md:py-6 bg-[#FFFFFF] mb-5 md:mb-10">
+      <div className="flex flex-col items-start">
+        <span className="font-semibold text-lg md:text-2xl text-[#0D0D0F] mb-2">
           Welcome Dr Taiwo
         </span>
-        <span className="font-normal text-base text-[#0A9D4C]">
+        <span className="font-normal text-sm md:text-base text-[#0A9D4C]">
           Heart Specialist
         </span>
       </div>
