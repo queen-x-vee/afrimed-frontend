@@ -11,11 +11,11 @@ function App() {
     <Routes>
 
       <Route to='/' element={<Signup/>}/>
-      <Route path="doctor" element={<DoctorsDashboard />} />
+      <Route path="/doctor" element={<DoctorsDashboard />} />
       <Route path="/doctor/patients" element={<Patients />} />
       <Route path="/doctor/appointment" element={<Appointment />} />
 
-      <Route path='patient' element ={<PatientsDashboard/>}/>
+      <Route path='/patient' element ={<PatientsDashboard/>}/>
 
    
      
