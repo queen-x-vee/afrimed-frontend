@@ -11,15 +11,15 @@ const pageRoutes = [
   
   {
     label: "Doctors",
-    href: "/patients",
+    href: "/patient/doctors",
   },
   {
     label: "Messages",
-    href: "/messages",
+    href: "/patient/messages",
   },
   {
     label: "Reports",
-    href: "/reports",
+    href: "/patient/reports",
   },
 ];
 
