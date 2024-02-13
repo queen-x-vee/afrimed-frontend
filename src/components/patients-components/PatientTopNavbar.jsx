@@ -45,7 +45,7 @@ const TopNavbar = () => {
         }
       </div>
     </nav>
-    <div className="flex flex-row justify-between items-center p-4 md:px-11 md:py-6 bg-[#FFFFFF] mb-5 md:mb-10">
+    <div className=" flex flex-row justify-between items-center p-4 md:px-11 md:py-6 bg-[#FFFFFF] mb-5 md:mb-10">
       <div className="flex flex-col items-start">
         <span className="font-semibold text-lg md:text-2xl text-[#0D0D0F] mb-2">
         Hello John &#128075;

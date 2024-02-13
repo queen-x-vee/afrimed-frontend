@@ -3,6 +3,8 @@ import PatientNavbar from "../components/patients-components/PatientNavbar";
 import "../index.css";
 import PatientTopNavbar from "../components/patients-components/PatientTopNavbar";
 import Doctor from "../assests/doctors-dashboard-assets/doctorsprofilepic.svg";
+import ChatComponent from "../components/patients-components/AIChat";
+import Line from "../components/doctors-components/graph/Line.tsx"
 
 //import Fourth from "../assests/doctors-dashboard-assets/fourthCard.svg";
 
@@ -130,9 +132,13 @@ const PatientsDashboard = () => {
                       </span>
                     </div>
                   </div>
-                  <div></div>
+                  <div>
+                    <Line/>
+                  </div>
                 </div>
-                <div className="col-span-1">hiii</div>
+                <div className="col-span-1">
+                  <ChatComponent/>
+                </div>
               </div>
             </div>
           </div>

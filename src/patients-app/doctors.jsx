@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../components/doctors-components/Navbar";
-import TopNavbar from "../components/doctors-components/TopNavbar";
+import PatientNavbar from "../components/patients-components/PatientNavbar";
+import PatientTopNavbar from "../components/doctors-components/PatientTopNavbar";
 
 const recentPatients = [
   {
@@ -54,9 +54,9 @@ const Doctors = () => {
   return (
     <>
       <div className=" h-full flex m-0 p-0">
-        <Navbar />
+        <PatientNavbar />
         <main className="md:ml-[20rem] w-full bg-[#F7F7F7] ">
-          <TopNavbar/>
+          <PatientTopNavbar/>
         <div className="px-4 ">
           <div>
             <div>
