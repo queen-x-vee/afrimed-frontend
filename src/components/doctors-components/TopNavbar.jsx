@@ -37,8 +37,8 @@ const TopNavbar = () => {
               <div className="flex flex-row items-center " key={index}>
                 <NavLink to={route.href} className={({ isActive }) =>
                 isActive
-                  ? "border-b-4 border-b-[#5D34F3] text-black text-base py-2.5 px-2 flex flex-row items-center gap-x-3 "
-                  : "flex flex-row items-center gap-x-3 py-2.5 px-2 text-base text-black "
+                  ? "border-b-4 border-b-[#5D34F3] text-black text-xs py-2.5 px-2 flex flex-row items-center gap-x-3 tracking-tighter "
+                  : "flex flex-row items-center gap-x-3 py-2.5 px-2 text-xs text-black tracking-tighter "
               }>
                   {route.label}
                 </NavLink>
