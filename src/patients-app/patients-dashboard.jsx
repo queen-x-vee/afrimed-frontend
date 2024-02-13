@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../components/patients-components/Navbar";
+import PatientNavbar from "../components/patients-components/PatientNavbar";
 import "../index.css";
-import TopNavbar from "../components/patients-components/TopNavbar";
+import PatientTopNavbar from "../components/patients-components/PatientTopNavbar";
 
 //import Fourth from "../assests/doctors-dashboard-assets/fourthCard.svg";
 
@@ -13,9 +13,9 @@ const PatientsDashboard = () => {
   return (
     <>
       <div className=" h-full flex m-0 p-0">
-        <Navbar />
+        <PatientNavbar />
         <main className="md:ml-[20rem]  w-full bg-[#F7F7F7] ">
-          <TopNavbar />
+          <PatientTopNavbar />
           <div>
             <div className="px-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-2">
