@@ -16,21 +16,21 @@ const socialRoutes = [
   {
     icon: Appointment,
     label: "Doctors",
-    href: "patient//doctors",
+    href: "/patient/doctors",
   },
   {
     icon: Message,
     label: "Messages",
-    href: "patient/messages",
+    href: "/patient/messages",
   },
   {
     icon: Reports,
     label: "Reports",
-    href: "patient/reports",
+    href: "/patient/reports",
   },
 ];
 
-const Navbar = () => {
+const PatientNavbar = () => {
   return (
     <nav className="hidden md:flex flex-col bg-[#fffff] h-full md:w-80 fixed top-0 left-0 overflow-y-auto shadow-sm px-4 md:px-10">
       <div className="flex items-center justify-center mt-8 mb-14">
@@ -67,4 +67,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default PatientNavbar;
