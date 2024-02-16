@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div className=" w-full ">
-      <div className=" background-image w-full h-screen flex justify-center items-center py-10">
+      <div className=" background-image w-full  flex justify-center items-center  py-10 md:py-20">
         <div className="sub-text bg-white px-6 md:px-14 pt-10 pb-9 shadow-xl mx-auto w-full max-w-lg rounded-2xl ">
           <div className=" mx-auto flex w-full max-w-md flex-col space-y-16 ">
             <div className="flex flex-col items-center justify-center text-center">
