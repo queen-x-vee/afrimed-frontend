@@ -32,7 +32,7 @@ const card = [
 
   {
     icon: Third,
-    label: "Reports",
+    label: "Call Consultancy",
     backgroundColor: "bg-[#FFDFE4]",
     figure: "129",
   },
