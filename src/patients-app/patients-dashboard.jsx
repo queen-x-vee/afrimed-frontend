@@ -4,9 +4,9 @@ import "../index.css";
 import PatientTopNavbar from "../components/patients-components/PatientTopNavbar";
 import Doctor from "../assests/doctors-dashboard-assets/doctorsprofilepic.svg";
 import ChatComponent from "../components/patients-components/AIChat";
-import Line from "../components/doctors-components/graph/Line.tsx"
-
+//import Line from "../components/doctors-components/graph/Line.tsx"
 //import Fourth from "../assests/doctors-dashboard-assets/fourthCard.svg";
+import Calender from "../assests/patients-dashboard/calender.svg";
 
 const PatientsDashboard = () => {
   const [imagePreview, setImagePreview] = useState(null);
@@ -34,11 +34,11 @@ const PatientsDashboard = () => {
         <main className="md:ml-[20rem]  w-full bg-[#F7F7F7] ">
           <PatientTopNavbar />
           <div>
-            <div className="px-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-2">
+            <div className="px-4 md:px-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-6">
                 <div className="col-span-1 md:col-span-2 ">
                   <div className="">
-                    <div className="rounded-[30px] bg-[#E2E4F9] flex items-center justify-around p-1.5 md:w-3/5 mx-auto">
+                    <div className="rounded-[30px] bg-[#E2E4F9] flex items-center justify-around p-1.5 md:w-3/5 mx-auto mb-4 md:mb-6">
                       <button className="bg-[#5D34F3] text-white py-2.5 px-6 font-medium text-base rounded-[20px]" onClick={handleSubmit}>
                         Upload Image
                       </button>
@@ -49,7 +49,7 @@ const PatientsDashboard = () => {
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3 ">
-                    <div className="bg-white">
+                    <div className="bg-white rounded-lg">
                       <div className="flex items-center justify-center w-full mb-5">
                         <div className=" w-full h-[40vh] p-4">
                           {imagePreview && (
@@ -90,7 +90,7 @@ const PatientsDashboard = () => {
                         </label>
                       </div>
                     </div>
-                    <div className="bg-white">
+                    <div className="bg-white p-4 rounded-lg">
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                       Harum accusamus omnis animi rem vel at provident. Nostrum
                       consequuntur facilis, sunt inventore incidunt possimus
@@ -98,16 +98,17 @@ const PatientsDashboard = () => {
                       temporibus!
                     </div>
                   </div>
-                  <div className="bg-[#5D34F3] rounded-2xl flex justify-between items-center px-2 md:px-8 my-4 md:my-7">
-                    <div>
+                  <div className="bg-[#5D34F3] rounded-2xl flex justify-between items-center p-3 md:p-8 my-4 md:my-7">
+                    <div className="flex items-center gap-5">
                       <div>
                         <img src={Doctor} alt="doctor" />
                       </div>
-                      <span>Book a consultation</span>
+                      <span className="text-2xl font-medium text-[#F2F5FF]">Book a consultation</span>
                     </div>
                     <div>
-                      <div className="bg-white/20">
-                        <div className="bg-white">
+                      <div className="bg-white/20 py-2 px-2.5 rounded-lg">
+                        <div className="bg-white flex items-center py-2 px-6 rounded-lg">
+                          <img src={Calender} alt="calender" />
                           <span>Check Calender</span>
                         </div>
                       </div>
@@ -143,13 +144,14 @@ const PatientsDashboard = () => {
                     <p className="text-[#252539] font-semibold text-3xl">130mm/hg</p>
                    </div>
                    <div >
-                    <p>Blood Pressure</p>
-                    <p>130mm/hg</p>
+                    <p className="text-[#93939A] font-normal text-base md:text-lg"> Pulse</p>
+                    <p className="text-[#252539] font-semibold text-3xl">81 beats/min</p>
                    </div>
                    <div >
-                    <p>Blood Pressure</p>
-                    <p>130mm/hg</p>
+                    <p className="text-[#93939A] font-normal text-base md:text-lg"> Oxygen</p>
+                    <p className="text-[#252539] font-semibold text-3xl">93%</p>
                    </div>
+                   
                    </div>
 
               

@@ -19,7 +19,7 @@ function ChatComponent() {
   };
 
   return (
-    <div className="bg-white h-full">
+    <div className="bg-white h-full rounded-lg">
       <div className="flex flex-col justify-center items-center ">
         <img src={AI} alt="AI" className="w-6 md:w-14" />
         <span>AI MEDIC</span>
