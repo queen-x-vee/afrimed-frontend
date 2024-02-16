@@ -3,6 +3,7 @@ import DoctorsDashboard from "./doctors-app/doctors-dashboard";
 import Patients from "./doctors-app/patients";
 import Appointment from "./doctors-app/appointment";
 import "./App.css";
+import LandingPage from "./landing-page";
 import Signup from "./authentication/signup";
 import Login from "./authentication/login";
 import Verify from "./authentication/verify";
@@ -12,10 +13,11 @@ import Doctors from "./patients-app/doctors";
 function App() {
   return (
     <Routes>
-      <Route exact path="/" element={<Login />} />
+      <Route exact path="/" element={<LandingPage />} />
+      <Route exact path="/login" element={<Login />} />
       <Route exact path="/signup" element={<Signup />} />
-
       <Route exact path="/verify" element={<Verify />} />
+
       <Route exact path="/doctor" element={<DoctorsDashboard />} />
       <Route exact path="/doctor-patients" element={<Patients />} />
       <Route exact path="/doctor-appointments" element={<Appointment />} />
