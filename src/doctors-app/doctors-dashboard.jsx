@@ -36,6 +36,7 @@ const card = [
     backgroundColor: "bg-[#FFDFE4]",
     figure: "129",
   },
+
 ];
 
 const recentPatients = [

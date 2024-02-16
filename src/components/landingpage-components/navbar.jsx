@@ -20,28 +20,28 @@ const MobileNavbar=() => {
 
 
   return (
-    <nav className={ "flex justify-between py-6 px-24"}>
+    <nav className={ "flex justify-between p-4 md:py-6 md:px-24"}>
       
-      <div className="flex justify-around items-center text-sm font-semibold gap-12">
+      <div className="flex justify-around items-center text-sm font-semibold gap-6 md:gap-12">
       <div>
         <img src={Logo} alt="logo"/>
       </div>
-      <span className="li">
+      <span className="li text-xs md:text-base -tracking-tighter">
           <a onClick={() => scrollToSection("about-me")} href='#home'>Home</a>
         </span>
-        <span className="li active:border-b-white">
+        <span className="li active:border-b-white text-xs md:text-base tracking-tighter">
           <a onClick={() => scrollToSection("projects")} href='#services'>Services</a>
         </span>
        
-        <span className="li">
+        <span className="li text-xs md:text-base tracking-tighter">
           <a onClick={() => scrollToSection("tech-stack")} href='#acilities'>Facilities</a>
         </span>
-        <span className="li">
+        <span className="li text-xs md:text-base tracking-tighter">
           <a onClick={() => scrollToSection("blog")} href='#contact-us'>Contact Us</a>
         </span>
         
       </div>
-      <div className="flex flex-row items-center gap-10">
+      <div className="flex flex-row items-center gap-3 md:gap-10">
         <Link to="/login" className="text-xs font-bold py-3 px-6 ">Login</Link>
         <Link to="/signup" className="text-xs font-bold py-3 px-6 text-white bg-[#5D34F3] rounded-lg">Sign up</Link>
       </div>
@@ -49,7 +49,7 @@ const MobileNavbar=() => {
         .li {
           margin: auto;
           color: #201E1E;
-          font-size: 14px;
+          
           cursor: pointer;
         }
         .li::after {
