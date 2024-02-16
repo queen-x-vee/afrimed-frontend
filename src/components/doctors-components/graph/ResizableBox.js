@@ -12,11 +12,11 @@ export default function ResizableBox({
   className = "",
 }) {
   return (
-    <div style={{ marginLeft: 20 }}>
+    <div style={{ marginLeft: 20 , marginRight: 20 }} >
       <div
         style={{
           display: "inline-block",
-          width: "auto",
+          width: "100%",
           background: "white",
           padding: ".5rem",
           borderRadius: "0.5rem",
@@ -28,7 +28,7 @@ export default function ResizableBox({
           <ReactResizableBox width={width} height={height}>
             <div
               style={{
-                width: "100%",
+                width: "70%",
                 height: "100%",
               }}
               className={className}

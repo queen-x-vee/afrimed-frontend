@@ -74,8 +74,8 @@ const Verify = () => {
                   </div>
 
                   <div className="flex flex-col space-y-5">
-                  <div className="flex items-center p-4 justify-center text-white text-xs w-full  rounded-xl bg-[#5D34F3]">
-                    <button  type="submit"
+                  <div >
+                    <button className="flex items-center p-4 justify-center text-white text-xs w-full  rounded-xl bg-[#5D34F3]"  type="submit"
                         onClick={() =>
                           alert("Enterd OTP is " + otp.code.join(""))
                         }>

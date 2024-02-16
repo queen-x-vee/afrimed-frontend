@@ -132,8 +132,27 @@ const PatientsDashboard = () => {
                       </span>
                     </div>
                   </div>
-                  <div>
-                    <Line/>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-x-3">
+                   <div className="md:col-span-2 bg-white">
+                   
+                   </div>
+                   <div className="md:col-span-1 bg-white rounded-3xl p-5 md:p-8 h-96  flex flex-col justify-between "> 
+                 
+                   <div >
+                    <p className="text-[#93939A] font-normal text-base md:text-lg"> Blood Pressure</p>
+                    <p className="text-[#252539] font-semibold text-3xl">130mm/hg</p>
+                   </div>
+                   <div >
+                    <p>Blood Pressure</p>
+                    <p>130mm/hg</p>
+                   </div>
+                   <div >
+                    <p>Blood Pressure</p>
+                    <p>130mm/hg</p>
+                   </div>
+                   </div>
+
+              
                   </div>
                 </div>
                 <div className="col-span-1">

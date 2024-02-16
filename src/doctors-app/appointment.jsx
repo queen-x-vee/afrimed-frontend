@@ -1,11 +1,11 @@
 import React from "react";
 import Navbar from "../components/doctors-components/Navbar";
-import { NavLink } from "react-router-dom";
 import Avatar from "../assests/doctors-dashboard-assets/avatar.svg";
 import Accept from "../assests/doctors-dashboard-assets/accept.svg";
 import Decline from "../assests/doctors-dashboard-assets/decline.svg";
-import Forward from "../assests/doctors-dashboard-assets/forward.svg";
+import AppointmentBanner from "../assests/doctors-dashboard-assets/appointmentbanner.svg"
 import TopNavbar from "../components/doctors-components/TopNavbar";
+
 
 const appointmentPatients = [
   {
@@ -76,6 +76,16 @@ const Appointment = () => {
           <TopNavbar />
           <div className="px-8">
             <div className=" ">
+              <div className="background-image rounded-xl mb-10 flex items-center justify-between p-4">
+                <div className="flex flex-col items-start gap-3">
+                  <p className="font-semibold text-4xl text-[#F8F9FF]">Next Appointment</p>
+                  <p className="font-normal text-lg text-[#ECECEF]">Consultation Sessions</p>
+                </div>
+                <div className="py-2.5 px-9 bg-[#5D34F3] rounded-lg text-white">
+                  <button>Open</button>
+                </div>
+              </div>
+
               <div className="flex justify-between items-center">
                 <div>
                   <span>Status:</span>
@@ -170,6 +180,28 @@ const Appointment = () => {
             </div>
           </div>
         </main>
+        <style jsx>{`
+        .container {
+          position: relative;
+        }
+
+        .background-image {
+          background-image:url(${AppointmentBanner});/* Replace 'path/to/your/image.jpg' with your image path */
+          background-size: cover;
+          background-position: center;
+          width: 100%;
+        }
+        
+
+        /* Style for the text or content */
+        .background-image h1,
+        .background-image .left,
+        .background-image .right,
+        .background-image .sub-text {
+          position: relative;
+          z-index: 1; /* Ensure text appears above the overlay */
+        }
+      `}</style>
       </div>
     </>
   );

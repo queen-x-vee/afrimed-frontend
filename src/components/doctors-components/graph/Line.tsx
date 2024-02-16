@@ -5,7 +5,7 @@ import React from "react";
 import { AxisOptions, Chart } from "react-charts";
 
 export default function Line() {
-  const { data, randomizeData } = useDemoConfig({
+  const { data } = useDemoConfig({
     series: 10,
     dataType: "time",
   });
@@ -32,10 +32,10 @@ export default function Line() {
 
   return (
     <>
-      <button onClick={randomizeData}>Randomize Data</button>
+      
       <br />
       <br />
-      <ResizableBox>
+      <ResizableBox >
         <Chart
           options={{
             data,

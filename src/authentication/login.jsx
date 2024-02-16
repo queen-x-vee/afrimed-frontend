@@ -47,14 +47,14 @@ const Login = () => {
                   </div>
                 </div>
                 <div className="flex flex-col space-y-4 mb-10">
-                  <div className="flex items-center p-4 justify-center text-white text-xs w-full  rounded-xl bg-[#5D34F3]">
-                    <button>
+                  <button className="flex items-center p-4 justify-center text-white text-xs w-full  rounded-xl bg-[#5D34F3]">
+                    
                       <Link to='/patient'>Sign in as a Patient</Link>
-                    </button>
-                  </div>
-                  <div className="flex items-center p-4 justify-center text-black text-xs w-full  rounded-xl border border-[#5D34F3]">
+                    
+                  </button>
+                  <button className="flex items-center p-4 justify-center text-black text-xs w-full  rounded-xl border border-[#5D34F3]">
                     <Link to='/doctor'>Sign in as a Doctor</Link>
-                  </div>
+                  </button>
                 </div>
               </form>
             </div>
