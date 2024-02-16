@@ -13,7 +13,7 @@ const Hero = () => {
           <span className="font-normal text-[#5D34F3]"> healthcare</span> is not
           just a service but an experience
         </p>
-        <p className="font-normal text-base md:text-xl text-black/80 mt-2 md:mt-4">
+        <p className="font-normal text-sm md:text-xl text-black/80 mt-2 md:mt-4">
           Our AI-powered doctor-patient consultation platform brings the
           expertise of medical professionals right to your fingertips,
           revolutionizing the way you access healthcare.
