@@ -1,5 +1,7 @@
 //import Logo from "../../assets/logo.png";
+
 import { useState } from "react";
+import Logo from "../assests/authentication/logo.svg";
 //import {Link } from "react-router-dom"
 //import Dialog from '../../components/Dialog'
 
@@ -33,18 +35,22 @@ const Verify = () => {
   return (
     <div className=" w-full ">
       <div className=" background-image w-full h-screen flex justify-center items-center">
-        <div className="sub-text bg-white px-6 pt-10 pb-9 shadow-xl mx-auto w-full max-w-lg rounded-2xl">
+        <div className="sub-text bg-white px-6 md:px-20 pt-10 pb-9 shadow-xl mx-auto w-full max-w-lg rounded-2xl">
           <div className=" mx-auto flex w-full max-w-md flex-col space-y-16">
             <div className="flex flex-col items-center justify-center text-center space-y-2">
-              <div className="font-semibold text-3xl">
-                <p>Verify OTP</p>
+            <div className="flex flex-col items-center justify-center text-center">
+              <img src={Logo} alt="logo" className="w-32" />
+            </div>
+            <div className="flex flex-col items-center justify-center text-center space-y-2">
+              <div
+                className="font-medium text-2xl text-[#272728]"
+              >
+                <p>Verify your account</p>
               </div>
-              <div className="flex flex-row text-sm font-medium text-gray-400">
-                <p>
-                  Kindly Input the 4-digit verification code sent to your email
-                  or phone number
-                </p>
+              <div className="flex flex-row text-xs font-normal text-[#575758]">
+                <p>An Authentication code has been sent to <span className="text-[#5D34F3]">your email</span></p>
               </div>
+            </div>
             </div>
 
             <div>
@@ -68,22 +74,20 @@ const Verify = () => {
                   </div>
 
                   <div className="flex flex-col space-y-5">
-                    <div>
-                      <button
-                        type="submit"
+                  <div className="flex items-center p-4 justify-center text-white text-xs w-full  rounded-xl bg-[#5D34F3]">
+                    <button  type="submit"
                         onClick={() =>
                           alert("Enterd OTP is " + otp.code.join(""))
-                        }
-                        className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-yellow-300 border-none text-white text-sm shadow-sm"
-                      >
-                        Verify Account
-                      </button>
-                    </div>
+                        }>
+                      Submit
+                    </button>
+                  </div>
+                    
 
                     <div className="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
                       <p>Didn't receive code?</p>{" "}
                       <a
-                        className="flex flex-row items-center text-yellow-300"
+                        className="flex flex-row items-center text-[#5D34F3]"
                         href="http://"
                         target="_blank"
                         rel="noopener noreferrer"
