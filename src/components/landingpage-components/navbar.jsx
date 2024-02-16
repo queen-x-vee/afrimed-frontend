@@ -7,21 +7,6 @@ import { Link } from "react-router-dom";
 
 const MobileNavbar=() => {
 
-    const [color, setColor] = React.useState(false)
-    function changeColor(){
-        if(window.scrollY >= 100){
-            setColor(true)
-        }else{
-            setColor(false)
-        }
-    }
-
-    React.useEffect(
-        ()=>{
-            window.addEventListener('scroll', changeColor)
-        }
-    )
-
 
   const [active, setActive] = React.useState(false);
   const scrollToSection = (id) => {
