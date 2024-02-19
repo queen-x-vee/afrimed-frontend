@@ -5,6 +5,7 @@ import Features from './components/landingpage-components/features'
 import HeartTest from './components/landingpage-components/heartTest'
 import Medic from './components/landingpage-components/aimedic'
 import Footer from './components/landingpage-components/footer'
+import SeamlessJourney from './components/landingpage-components/seamlessJourney'
 
 const LandingPage = () => {
   return (
@@ -12,11 +13,9 @@ const LandingPage = () => {
     <Navbar/>
     <Hero/>
     <Features/>
+    <SeamlessJourney/>
     <HeartTest/>
-
-  
     <Medic/>
-  
     <Footer/>
     </div>
   )
