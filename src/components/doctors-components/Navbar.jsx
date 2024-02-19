@@ -3,7 +3,7 @@ import Dashboard from "../../assests/doctors-dashboard-assets/dashboard.svg";
 import Appointment from "../../assests/doctors-dashboard-assets/appointments.svg";
 import Patient from "../../assests/doctors-dashboard-assets/patient.svg";
 import Message from "../../assests/doctors-dashboard-assets/message.svg";
-import Reports from "../../assests/doctors-dashboard-assets/reports.svg";
+//import Reports from "../../assests/doctors-dashboard-assets/reports.svg";
 import Logo from "../../assests/doctors-dashboard-assets/logo.svg";
 import AI from "../../assests/doctors-dashboard-assets/aimedic.svg";
 import { NavLink } from "react-router-dom";
