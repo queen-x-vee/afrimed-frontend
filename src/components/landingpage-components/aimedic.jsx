@@ -8,28 +8,28 @@ const servicesRoutes = [
   {
     src: One,
     title: "Victor Testimony",
-   
+
     hospital: "Louis hospital, Ikeja",
     patient: "Patient1",
   },
   {
     src: One,
     title: "Victor Testimony ",
-   
+
     hospital: "Louis hospital, Ikeja",
     patient: "Patient1",
   },
   {
     src: One,
     title: "Victor Testimony",
-    
+
     hospital: "Louis hospital, Ikeja",
     patient: "Patient1",
   },
   {
     src: One,
     title: "Victor Testimony",
-    
+
     hospital: "Louis hospital, Ikeja",
     patient: "Patient1",
   },
@@ -133,15 +133,18 @@ const Medic = () => {
             {servicesRoutes.map((route, index) => {
               return (
                 <div
-                  className="py-10 px-5 flex flex-col items-center hover:bg-[#F6F4FF] bg-[#FAFAFE] hover:text-white rounded-lg "
+                  className="py-7 px-5 flex flex-col   hover:bg-[#F6F4FF] bg-[#FAFAFE] hover:text-white rounded-lg "
                   key={index}
                 >
-                  <div className="w-[10.625rem] h-[13.118rem] flex justify-center items-center mb-5">
+                  <div className="w-[10.625rem] h-[13.118rem] mx-auto mb-5">
                     <img src={route.src} alt="Careers" />
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-sm font-medium text-[#020202] mt-2"> Dr {route.title}</span>
+                      <span className="text-sm font-medium text-[#020202] mt-2">
+                        {" "}
+                        Dr {route.title}
+                      </span>
                       <button
                         to="/signup"
                         className="text-xs font-bold py-1.5 px-4  text-white bg-[#5D34F3] rounded-[6px]"
@@ -151,18 +154,20 @@ const Medic = () => {
                     </div>
                     <div className="flex items-center">
                       <img src={Star} alt="star" className="w-4 h-4" />
-                      <span className="text-xs font-normal text-[#4E4E4E]">4.8(150)</span>
+                      <span className="text-xs font-normal text-[#4E4E4E]">
+                        4.8(150)
+                      </span>
                     </div>
                   </div>
-                  <div className="flex justify-between items-center text-sm text-[#4E4E4E] font-normal">
-                   <span>At {route.hospital}</span>
-                   <span>{route.patient}</span>
+                  <div className="flex justify-between  gap-6 items-center text-sm text-[#4E4E4E] font-normal mt-5">
+                    <span>At {route.hospital}</span>
+                    <span>{route.patient}</span>
                   </div>
                 </div>
               );
             })}
           </div>
-          <hr className="lg:mt-24 mt-14 opacity-10" />
+      
         </section>
       </div>
     </div>
