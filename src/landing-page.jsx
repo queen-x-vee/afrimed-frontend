@@ -6,6 +6,7 @@ import HeartTest from './components/landingpage-components/heartTest'
 import Medic from './components/landingpage-components/aimedic'
 import Footer from './components/landingpage-components/footer'
 import SeamlessJourney from './components/landingpage-components/seamlessJourney'
+import Testimonials from './components/landingpage-components/testimonials'
 
 const LandingPage = () => {
   return (
@@ -16,6 +17,7 @@ const LandingPage = () => {
     <SeamlessJourney/>
     <HeartTest/>
     <Medic/>
+    <Testimonials/>
     <Footer/>
     </div>
   )
