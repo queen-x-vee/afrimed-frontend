@@ -19,13 +19,13 @@ const Hero = () => {
           revolutionizing the way you access healthcare.
         </p>
       </div>
-      <div className="my-5 md:my-10">
-        <button className="text-xs font-bold py-3 px-6 ">Login</button>
+      <div className="my-5 md:my-10 flex items-center gap-4">
+        <button className="text-xs font-bold py-4 px-12   text-white bg-[#5D34F3] rounded-lg">Join now</button>
         <button
           to="/signup"
-          className="text-xs font-bold py-3 px-6 text-white bg-[#5D34F3] rounded-lg"
+          className="text-xs font-bold py-4 px-5 text-[#5D34F3] border border-[#5D34F3] rounded-lg"
         >
-          Sign up
+          Get your heart tested for free
         </button>
       </div>
       <div className="border-t-8 border-x-8 border-spacing-x-11 border-black my-10 md:my-16 rounded-t-xl">

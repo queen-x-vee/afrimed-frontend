@@ -38,7 +38,7 @@ const servicesRoutes = [
 const Medic = () => {
   return (
     <div className=" w-full relative flex flex-col justify-between items-center px-6 md:px-20 md:py-10 bg-[#FCFCF7]  ">
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full h-[90vh]">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full h-[70vh]">
         <div>
           <div className="w-[22.5rem] absolute top-[5%] left-1/3 transform -translate-x-1/2 -translate-y-1">
             <img src={AIMedic} alt="AI-Medic" className="w-full h-full" />
@@ -56,26 +56,26 @@ const Medic = () => {
             </p>
           </div>
         </div>
-        <div className=" flex flex-col justify-center">
-          <div>
-            Get quick responses from AI Medic, our <span>AI-Powered Chat</span>
+        <div className=" flex flex-col justify-center px-8">
+          <div className="text-3xl font-bold text-[#252424]">
+            Get quick responses from AI Medic, our <span className="font-normal text-[#5D34F3]">AI-Powered Chat</span>
           </div>
-          <div>
+          <div className="font-normal text-[#6B6666] text-lg">
             Seamlessly navigate consultations, access quick responses, and
             experience a revolutionary approach to healthcare.
           </div>
-          <div className="flex items-center mt-10">
+          <div className="flex items-center gap-8 mt-10">
             <button
               to="/signup"
-              className="text-xs font-bold py-3 px-6 md:py-4 md:px-12 text-white bg-[#5D34F3] rounded-lg"
+              className="text-lg font-bold py-3 px-6 md:py-4 md:px-12 text-white bg-[#5D34F3] rounded-lg"
             >
-              Try it for free
+              Get Started
             </button>
             <button
               to="/signup"
-              className="text-xs font-bold py-3 px-6 md:py-4 md:px-12 text-[#5D34F3] border border-[#5D34F3] rounded-lg"
+              className="text-lg font-bold py-3 px-6 md:py-4 md:px-12 text-[#5D34F3] border border-[#5D34F3] rounded-lg"
             >
-              Try it for free
+             Login
             </button>
           </div>
         </div>
@@ -123,9 +123,11 @@ const Medic = () => {
       <div>
         <section className="px-6 md:px-10 md:py-10 mt-[20%] w-screen md:w-full bg-[#FCFCF7]">
           <div className="text-center mb-10 mt-16">
-            <p className="text-2xl font-normal text-[#696969]">
+            <p className="text-3xl font-bold text-[#020202]">
               {" "}
-              Key benefits of AriMed
+              Meet some of Our <span className="font-normal text-[#5D34F3]">Best Doctors</span>
+
+
             </p>
           </div>
 

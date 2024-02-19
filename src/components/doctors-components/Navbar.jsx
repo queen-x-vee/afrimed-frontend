@@ -51,10 +51,11 @@ const Navbar = () => {
               key={index}
               className={({ isActive }) =>
                 isActive
-                  ? "bg-[#5D34F3] text-white py-2.5 px-4 flex flex-row items-center gap-x-3 "
+                  ? "bg-[#5D34F3] text-white  py-2.5 px-4 flex flex-row items-center gap-x-3 "
                   : "flex flex-row items-center gap-x-3 py-2.5 px-4 text-[#696969] "
               }
             >
+            
               <img
                 key={index}
                 src={route.icon}
