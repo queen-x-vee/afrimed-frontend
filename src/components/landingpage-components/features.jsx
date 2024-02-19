@@ -18,7 +18,7 @@ const servicesRoutes = [
   {
     src: Three,
     title: "Secure Messaging",
-    text: "Discuss non-urgent matter all within a private and secure messaging environment.",
+    text: "",
   },
   {
     src: Four,
