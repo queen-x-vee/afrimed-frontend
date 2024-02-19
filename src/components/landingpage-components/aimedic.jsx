@@ -8,27 +8,35 @@ const servicesRoutes = [
     src: One,
     title: "AI-Powered Chatbot",
     text: "Leverage AI chat to augment diagnostic capabilities, leading to quicker and more accurate assessments.",
+    hospital:'Hospital1',
+    patient: 'Patient1',
   },
   {
     src: One,
     title: "Video and Call Consultations ",
     text: "Benefit from the convenience of remote consultations without compromising the quality of medical care.",
+    hospital:'Hospital1',
+    patient: 'Patient1',
   },
   {
     src: One,
     title: "Secure Messaging",
     text: "",
+    hospital:'Hospital1',
+    patient: 'Patient1',
   },
   {
     src: One,
     title: "Electronic Health Record",
     text: "Doctors benefit from quick access to comprehensive patient data, allowing for more informed and personalized consultations.",
+    hospital:'Hospital1',
+    patient: 'Patient1',
   },
 ];
 
 const Medic = () => {
   return (
-    <div className=" w-full relative flex flex-col justify-between items-center px-6 md:px-20 md:py-10  ">
+    <div className=" w-full relative flex flex-col justify-between items-center px-6 md:px-20 md:py-10 bg-[#FCFCF7]  ">
       <div className="grid grid-cols-1 md:grid-cols-2 w-full h-[90vh]">
         <div>
           <div className="w-[22.5rem] absolute top-[5%] left-1/3 transform -translate-x-1/2 -translate-y-1">
@@ -126,10 +134,10 @@ const Medic = () => {
             {servicesRoutes.map((route, index) => {
               return (
                 <div
-                  className="py-10 px-5 flex flex-col  hover:bg-[#5D34F3] hover:text-white bg-white rounded-lg "
+                  className="py-10 px-5 flex flex-col items-center hover:bg-[#F6F4FF] bg-[#FAFAFE] hover:text-white rounded-lg "
                   key={index}
                 >
-                  <div className="w-[10.625rem] h-[13.118rem] bg-[#E4DDFD] flex justify-center items-center hover:bg-[#E4DDFD] mb-5">
+                  <div className="w-[10.625rem] h-[13.118rem] flex justify-center items-center mb-5">
                     <img src={route.src} alt="Careers" />
                   </div>
                   <p className="text-base leading-7 font-semibold  hover:text-white mb-6">
