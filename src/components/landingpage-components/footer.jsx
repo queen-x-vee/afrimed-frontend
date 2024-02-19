@@ -1,7 +1,17 @@
 import React from "react";
 import Logo from "../../assests/authentication/logo.svg";
+import Twitter from "../../assests/landingpage/twitter.svg";
+import Instagram from '../../assests/landingpage/instagram.svg'
+import Linkedin from '../../assests/landingpage/linkedin.svg'
+import Arrowup from '../../assests/landingpage/scrolltotop.svg'
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div>
       <div className="h-[14.56rem] bg-[#5D34F3] flex flex-col items-center justify-center">
@@ -44,10 +54,29 @@ const Footer = () => {
        
 
         <hr className="border border-[#D9D9D9] mt-8 md:mt-10 mb-6" />
-        <div>
-          <div></div>
-          <div></div>
-          <div></div>
+        <div className="flex justify-between items-center">
+        <div className="flex items-center gap-5">
+          <span className="text-white font-normal text-sm" >Connect with us</span>
+          <div className="flex gap-2 mt-2">
+            <img src={Twitter} alt="twitter" />
+            <img src={Instagram} alt="instagram" />
+            <img src={Linkedin} alt="linkedin" />
+          </div>
+        </div>
+          <div>
+            <span className="text-white font-normal text-sm">Copyright © 2024 AfriMed. All rights reserved.</span>
+          </div>
+          
+          <div>
+          <button
+        onClick={scrollToTop}
+        className={ " fixed bottom-10 right-10 text-sm font-normal text-white flex justify-center items-center" }
+      >
+         Back to Top
+        <img src={Arrowup} alt ='arrow' width={20} className="font-bold animate-bounce" />
+       
+      </button>
+          </div>
         </div>
       </div>
      
