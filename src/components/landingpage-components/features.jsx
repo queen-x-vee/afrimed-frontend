@@ -17,13 +17,13 @@ const servicesRoutes = [
   },
   {
     src: Three,
-    title: "Backend Development",
-    text: "I build websites with top-notch technologies which can be accessed across all platforms",
+    title: "Secure Messaging",
+    text: "Discuss non-urgent matter all within a private and secure messaging environment.",
   },
   {
     src: Four,
-    title: "Responsive Layouts",
-    text: "I build websites with top-notch technologies which can be accessed across all platforms",
+    title: "Electronic Health Record",
+    text: "Doctors benefit from quick access to comprehensive patient data, allowing for more informed and personalized consultations.",
   },
 ];
 
