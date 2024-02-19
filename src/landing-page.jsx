@@ -4,6 +4,7 @@ import Hero from './components/landingpage-components/hero'
 import Features from './components/landingpage-components/features'
 import HeartTest from './components/landingpage-components/heartTest'
 import Medic from './components/landingpage-components/aimedic'
+import Footer from './components/landingpage-components/footer'
 
 const LandingPage = () => {
   return (
@@ -12,7 +13,11 @@ const LandingPage = () => {
     <Hero/>
     <Features/>
     <HeartTest/>
+
+  
     <Medic/>
+  
+    <Footer/>
     </div>
   )
 }
