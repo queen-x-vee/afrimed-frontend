@@ -2,35 +2,36 @@ import React from "react";
 import AIMedic from "../../assests/landingpage/aimedicdoc.svg";
 import Bulb from "../../assests/landingpage/bulb.svg";
 import One from "../../assests/landingpage/bestdocone.svg";
+import Star from "../../assests/landingpage/star.svg";
 
 const servicesRoutes = [
   {
     src: One,
-    title: "AI-Powered Chatbot",
-    text: "Leverage AI chat to augment diagnostic capabilities, leading to quicker and more accurate assessments.",
-    hospital:'Hospital1',
-    patient: 'Patient1',
+    title: "Victor Testimony",
+   
+    hospital: "Louis hospital, Ikeja",
+    patient: "Patient1",
   },
   {
     src: One,
-    title: "Video and Call Consultations ",
-    text: "Benefit from the convenience of remote consultations without compromising the quality of medical care.",
-    hospital:'Hospital1',
-    patient: 'Patient1',
+    title: "Victor Testimony ",
+   
+    hospital: "Louis hospital, Ikeja",
+    patient: "Patient1",
   },
   {
     src: One,
-    title: "Secure Messaging",
-    text: "",
-    hospital:'Hospital1',
-    patient: 'Patient1',
+    title: "Victor Testimony",
+    
+    hospital: "Louis hospital, Ikeja",
+    patient: "Patient1",
   },
   {
     src: One,
-    title: "Electronic Health Record",
-    text: "Doctors benefit from quick access to comprehensive patient data, allowing for more informed and personalized consultations.",
-    hospital:'Hospital1',
-    patient: 'Patient1',
+    title: "Victor Testimony",
+    
+    hospital: "Louis hospital, Ikeja",
+    patient: "Patient1",
   },
 ];
 
@@ -55,7 +56,7 @@ const Medic = () => {
             </p>
           </div>
         </div>
-        <div className=" flex flex-col justify-center"> 
+        <div className=" flex flex-col justify-center">
           <div>
             Get quick responses from AI Medic, our <span>AI-Powered Chat</span>
           </div>
@@ -120,9 +121,7 @@ const Medic = () => {
         </div>
       </div>
       <div>
-        <section
-          className="px-6 md:px-20 md:py-10 mt-[20%] w-screen md:w-full bg-[#FCFCF7]"
-        >
+        <section className="px-6 md:px-10 md:py-10 mt-[20%] w-screen md:w-full bg-[#FCFCF7]">
           <div className="text-center mb-10 mt-16">
             <p className="text-2xl font-normal text-[#696969]">
               {" "}
@@ -140,12 +139,25 @@ const Medic = () => {
                   <div className="w-[10.625rem] h-[13.118rem] flex justify-center items-center mb-5">
                     <img src={route.src} alt="Careers" />
                   </div>
-                  <p className="text-base leading-7 font-semibold  hover:text-white mb-6">
-                    {route.title}
-                  </p>
-                  <p className="text-xs font-normal  hover:text-white">
-                    {route.text}
-                  </p>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="text-sm font-medium text-[#020202] mt-2"> Dr {route.title}</span>
+                      <button
+                        to="/signup"
+                        className="text-xs font-bold py-1.5 px-4  text-white bg-[#5D34F3] rounded-[6px]"
+                      >
+                        Radiologist
+                      </button>
+                    </div>
+                    <div className="flex items-center">
+                      <img src={Star} alt="star" className="w-4 h-4" />
+                      <span className="text-xs font-normal text-[#4E4E4E]">4.8(150)</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center text-sm text-[#4E4E4E] font-normal">
+                   <span>At {route.hospital}</span>
+                   <span>{route.patient}</span>
+                  </div>
                 </div>
               );
             })}
