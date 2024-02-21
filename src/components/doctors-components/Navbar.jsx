@@ -33,7 +33,7 @@ const socialRoutes = [
   {
     icon: AI,
     label: "AI Medic",
-    href: "/doctor-reports",
+    href: "/doctor-ai",
   },
 ];
 

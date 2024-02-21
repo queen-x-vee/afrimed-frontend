@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AI from "../../assests/patients-dashboard/aiemoji.svg";
 
-function ChatComponent() {
+function AIChatComponent() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
 
@@ -19,7 +19,7 @@ function ChatComponent() {
   };
 
   return (
-    <div className="bg-white h-full rounded-lg ">
+    <div className="bg-white h-[80vh] rounded-lg pb-10">
       <div className="flex flex-col justify-center items-center">
         <img src={AI} alt="AI" className="w-6 md:w-14 pt-8" />
         <span>AI MEDIC</span>
@@ -98,7 +98,7 @@ function ChatComponent() {
   );
 }
 
-export default ChatComponent;
+export default AIChatComponent;
 
 /* <div className="flex flex-col flex-1 overflow-y-auto">
      <div className=" self-end p-4">

@@ -22,7 +22,7 @@ const pageRoutes = [
   },
   {
     label: "Reports",
-    href: "/doctor-reports",
+    href: "/doctor-ai",
   },
 ];
 

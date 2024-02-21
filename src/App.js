@@ -10,6 +10,7 @@ import Verify from "./authentication/verify";
 import PatientsDashboard from "./patients-app/patients-dashboard";
 import Doctors from "./patients-app/doctors";
 import MessagePage from "./patients-app/messages";
+import AIComponent from "./doctors-app/aimedic";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route exact path="/doctor" element={<DoctorsDashboard />} />
       <Route exact path="/doctor-patients" element={<Patients />} />
       <Route exact path="/doctor-appointments" element={<Appointment />} />
+      <Route exact path="/doctor-ai" element={<AIComponent />} />
 
       <Route exact path="/patient" element={<PatientsDashboard />} />
       <Route exact path="/patient-doctors" element={<Doctors />} />

@@ -31,7 +31,7 @@ const Features = () => {
   return (
     <section
       className="px-6 md:px-20 md:py-10 flex flex-col justify-center w-screen md:w-full bg-[#FCFCF7]"
-      id="services"
+      id="features"
     >
       <div className="text-center mb-10 mt-16">
         <p className="text-2xl font-normal text-[#696969]"> Key benefits of AriMed</p>
