@@ -9,6 +9,7 @@ import Login from "./authentication/login";
 import Verify from "./authentication/verify";
 import PatientsDashboard from "./patients-app/patients-dashboard";
 import Doctors from "./patients-app/doctors";
+import MessagePage from "./patients-app/messages";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
 
       <Route exact path="/patient" element={<PatientsDashboard />} />
       <Route exact path="/patient-doctors" element={<Doctors />} />
-      <Route exact path="/patient-messages" element={<Patients />} />
+      <Route exact path="/patient-messages" element={<MessagePage />} />
     </Routes>
   );
 }
