@@ -34,7 +34,7 @@ const MobileNavbar = () => {
 
         <span className="li text-xs md:text-sm ">
           <a onClick={() => scrollToSection("tech-stack")} href="#acilities">
-            Facilities
+            AI-Chat
           </a>
         </span>
         <span className="li text-xs md:text-sm  tracking-tighter">
