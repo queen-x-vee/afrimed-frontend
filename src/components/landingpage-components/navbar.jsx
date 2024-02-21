@@ -22,13 +22,13 @@ const MobileNavbar = () => {
           <img src={Logo} alt="logo" className="w-12 h-12 md:w-24 md:h-24" />
         </div>
         <span className="li text-xs md:text-sm ">
-          <a onClick={() => scrollToSection("about-me")} href="#home">
+          <a onClick={() => scrollToSection("home")} href="#home">
             Home
           </a>
         </span>
         <span className="li active:border-b-white text-xs md:text-sm ">
-          <a onClick={() => scrollToSection("projects")} href="#services">
-            Services
+          <a onClick={() => scrollToSection("features")} href="#features">
+            Features
           </a>
         </span>
 
