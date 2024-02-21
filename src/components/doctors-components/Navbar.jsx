@@ -60,7 +60,7 @@ const Navbar = () => {
                 key={index}
                 src={route.icon}
                 alt={route.label}
-                className="text-white "
+                className=" "
               />
               <span className=" hidden md:block font-normal text-base ">
                 {route.label}

@@ -10,7 +10,7 @@ const Hero = () => {
         <p className="font-bold text-3xl md:text-5xl">
           {" "}
           A world where
-          <span className="font-normal text-[#5D34F3]"> healthcare</span> is not
+          <span className="font-normal text-[#5D34F3] italic "> healthcare</span> is not
           just a service but an experience
         </p>
         <p className="font-normal text-sm md:text-xl text-black/80 mt-2 md:mt-4">
