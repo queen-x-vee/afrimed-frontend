@@ -58,18 +58,7 @@ const Doctors = () => {
         <main className="md:ml-[20rem] w-full bg-[#F7F7F7] ">
           <PatientTopNavbar/>
         <div className="px-4 ">
-          <div>
-            <div>
-              <span>Status:</span>
-              <button>All</button>
-              <button>New</button>
-              <button>Returning</button>
-
-            </div>
-            <div>
-
-            </div>
-          </div>
+          
          <div>
          <div className="p-4  ">
           <div className="grid grid-cols-6 my-7 gap-x-6  mb-2.5 bg-[#EBEFF2] p-6 font-medium text-lg text-[#696969]">
