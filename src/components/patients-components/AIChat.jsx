@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AI from "../../assests/patients-dashboard/aiemoji.svg";
 import useAuthStore from "../../stores/authStore";
 import Loader from "../Loader";
@@ -9,22 +9,25 @@ function ChatComponent() {
   const savedMessages = useMessage((state) => state.savedMessages);
   const storeMessage = useMessage((state) => state.storeMessage);
   const [isLoading, setIsLoading] = useState(false);
-  const [isFirstMonth, setIsFirstMonth] = useState(true);
+  const isFirstMount = useRef(true);
   const [messages, setMessages] = useState(savedMessages);
   const [newMessage, setNewMessage] = useState("");
   const [aiResponse, setAiResponses] = useState([]);
 
   // --------- Add AI response to messages Array -------------
   useEffect(() => {
-    if (!isFirstMonth) {
-      const AIResponse = aiResponse[aiResponse.length - 1]?.text;
-      setMessages([...messages, { text: AIResponse, sender: "AI" }]);
-
-      storeMessage([...messages, { text: AIResponse, sender: "AI" }]);
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
     } else {
-      setIsFirstMonth(false);
+      // Logic to run only on second mount
+      const AIResponse = aiResponse[aiResponse.length - 1]?.text;
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: AIResponse, sender: "AI" },
+      ]);
+      storeMessage([...messages, { text: AIResponse, sender: "AI" }]);
     }
-  }, [aiResponse]);
+  }, [aiResponse, storeMessage]);
 
   const handleMessageChange = (event) => {
     setNewMessage(event.target.value);
@@ -105,10 +108,11 @@ function ChatComponent() {
               onChange={handleMessageChange}
               className="w-11/12 h-full border-none outline-none bg-transparent"
             />
-            <button type="submit">
-              {isLoading ? (
-                <Loader />
-              ) : (
+
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <button type="submit">
                 <svg
                   width="16"
                   height="17"
@@ -121,8 +125,8 @@ function ChatComponent() {
                     fill="#5D34F3"
                   />
                 </svg>
-              )}
-            </button>
+              </button>
+            )}
           </div>
         </form>
       </div>

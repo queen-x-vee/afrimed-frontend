@@ -38,7 +38,7 @@ const Signup = () => {
     if (isLoggedIn) {
       navigate(user.type === "patient" ? "/patient" : "/doctor");
     }
-  }, []);
+  }, [isLoggedIn, navigate]);
 
   // ------------- Reuseable Registration Function -------------------------
   const submitFormData = async (formData, endpoint, onSuccess, onError) => {
@@ -47,10 +47,13 @@ const Signup = () => {
         formData.full_name === "" ||
         formData.email === "" ||
         formData.password === ""
-      )
-        throw { err: "Fields are required." };
-      if (formData.password !== formData.re_password)
-        throw { err: "Password does not match!" };
+      ) {
+        throw new Error("Fields are required.");
+      }
+
+      if (formData.password !== formData.re_password) {
+        throw new Error("Password does not match!");
+      }
 
       const data = {
         email: formData.email,
@@ -77,7 +80,7 @@ const Signup = () => {
 
       onSuccess(res);
     } catch (error) {
-      onError(error.err ? error.err : Object.values(error)[0][0]);
+      onError(error.message ? error.message : Object.values(error)[0][0]);
     }
   };
 
