@@ -46,7 +46,7 @@ const HeartClassification = () => {
               </label>
               <div className=" px-6 py-[1.25rem] bg-white border border-[#E7E7E7] rounded-2xl">
                 <input
-                  className="bg-transparent outline-none w-full px-3 placeholder:text-base placeholder:text-white"
+                  className="bg-transparent outline-none w-full px-3 placeholder:text-base "
                   type="text"
                   required
                   
@@ -78,7 +78,7 @@ const HeartClassification = () => {
               </label>
               <div className=" px-6 py-[1.25rem] bg-white border border-[#E7E7E7] rounded-2xl">
                 <input
-                  className="bg-transparent outline-none w-full px-3 placeholder:text-base placeholder:text-white"
+                  className="bg-transparent outline-none w-full px-3 placeholder:text-base "
                   type="text"
                   required
                 
