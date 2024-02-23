@@ -96,12 +96,8 @@ const PatientsDashboard = () => {
                        </button>
                       </div>
                     </div>
-                    <div className="bg-white p-4 rounded-lg">
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Harum accusamus omnis animi rem vel at provident. Nostrum
-                      consequuntur facilis, sunt inventore incidunt possimus
-                      voluptas, dolor, ullam consequatur placeat cupiditate
-                      temporibus!
+                    <div className="bg-white p-4 rounded-lg font-medium text-lg">
+                    Hemorrhage Detected
                     </div>
                   </div>
                  
