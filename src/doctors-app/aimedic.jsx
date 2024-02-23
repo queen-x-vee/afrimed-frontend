@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../components/doctors-components/Navbar";
 import "../index.css";
 import TopNavbar from "../components/doctors-components/TopNavbar";
 import AIChatComponent from "../components/doctors-components/AIChat";
 
 const PatientsDashboard = () => {
-  const [imagePreview, setImagePreview] = useState(null);
+  /*const [imagePreview, setImagePreview] = useState(null);
   const [profileImage, setProfileImage] = useState("");
   const handleImageChange = (e) => {
     setProfileImage(e.target.files[0]);
@@ -21,8 +21,11 @@ const PatientsDashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(data);
-  };
-
+  };*/
+  const handleSubmit = async (e) => {
+    alert('feauture coming soon');
+    e.preventDefault();
+  }
   return (
     <>
       <div className=" h-screen flex m-0 p-0 ">
@@ -48,25 +51,31 @@ const PatientsDashboard = () => {
                     <div className="bg-white rounded-lg">
                       <div className="flex items-center justify-center w-full mb-5">
                         <div className=" w-full h-[40vh] p-4">
-                          {imagePreview && (
+                        <img
+                              src={ 'https://storage.autogon.ai/a57e9050-0064-4b37-951e-b4eea5f3afa8.png'}
+                              alt="preview"
+                              className="w-full h-full"
+                              />
+                          {/*imagePreview && (
                             <img
                               src={imagePreview && imagePreview}
                               alt="preview"
                               className="w-full h-full"
                             />
-                          )}
+                          )*/}
                         </div>
                       </div>
                       <div className="flex items-center justify-center w-full mb-5">
-                        <input
+                        {/*<input
                           id="dropzone-file"
                           type="file"
                           accept="image/png, image/jpeg, image/jpg"
                           name="image"
                           className="hidden"
                           onChange={handleImageChange}
-                        />
-                        <label
+                        />*/}
+                       <button onClick={handleSubmit}>
+                       <label
                           htmlFor="dropzone-file"
                           className="text-[#1A73E8] flex items-center py-4 px-8 border border-[#DADCE0] "
                         >
@@ -84,6 +93,7 @@ const PatientsDashboard = () => {
                           </svg>
                           Add file
                         </label>
+                       </button>
                       </div>
                     </div>
                     <div className="bg-white p-4 rounded-lg">
