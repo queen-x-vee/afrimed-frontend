@@ -1,18 +1,27 @@
-//import Logo from "../../assets/logo.png";
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../assests/authentication/logo.svg";
-//import {Link } from "react-router-dom"
-//import Dialog from '../../components/Dialog'
-
-//import { useNavigate } from "react-router-dom";
+import Loader from "../components/Loader";
+import MessageAlert from "../components/MessageAlert";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Verify = () => {
- // const history = useNavigate();
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const email = location.state?.formData?.email;
+  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+  const [message, setMessage] = useState("");
+  const [messageID, setMessageID] = useState("");
   const [otp, setOtp] = useState({
     code: ["", "", "", ""],
   });
+
+  useEffect(() => {
+    if (!email) {
+      navigate("/login");
+    }
+  }, []);
 
   const handleInputChange = (event, index) => {
     const { value } = event.target;
@@ -24,33 +33,98 @@ const Verify = () => {
     }
   };
   const joinedOtp = otp.code.join("");
-  //console.log(joinedOtp)
 
+  // ----------- Handle Verify OTP ---------------------
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
 
-    console.log(joinedOtp);
+    try {
+      const res = await (
+        await fetch(`https://api-afrimed.vercel.app/api/auth/otp/verify/`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ otp: joinedOtp }),
+        })
+      ).json();
+
+      if (!res.success) {
+        throw res;
+      }
+
+      setLoading(false);
+
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+      setMessage(Object.values(error)[0]);
+      setMessageID("declineAlert");
+      setShowMessage(true);
+      setLoading(false);
+    }
+  };
+
+  // ----------- Handle Request New OTP -----------------
+  const handleResendOTP = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const res = await (
+        await fetch(`https://api-afrimed.vercel.app/api/auth/otp/verify/`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: email }),
+        })
+      ).json();
+
+      console.log(res);
+      if (!res.success) {
+        throw res;
+      }
+
+      console.log(res);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className=" w-full ">
+      {/* ------ Alert Component ---------- */}
+      {showMessage ? (
+        <MessageAlert
+          data={{ message, messageID }}
+          onDurationChange={setTimeout(() => {
+            setShowMessage(false);
+          }, 2000)}
+        />
+      ) : (
+        ""
+      )}
       <div className=" background-image w-full h-screen flex justify-center items-center">
         <div className="sub-text bg-white px-6 md:px-20 pt-10 pb-9 shadow-xl mx-auto w-full max-w-lg rounded-2xl">
           <div className=" mx-auto flex w-full max-w-md flex-col space-y-16">
             <div className="flex flex-col items-center justify-center text-center space-y-2">
-            <div className="flex flex-col items-center justify-center text-center">
-              <img src={Logo} alt="logo" className="w-32" />
-            </div>
-            <div className="flex flex-col items-center justify-center text-center space-y-2">
-              <div
-                className="font-medium text-2xl text-[#272728]"
-              >
-                <p>Verify your account</p>
+              <div className="flex flex-col items-center justify-center text-center">
+                <img src={Logo} alt="logo" className="w-32" />
               </div>
-              <div className="flex flex-row text-xs font-normal text-[#575758]">
-                <p>An Authentication code has been sent to <span className="text-[#5D34F3]">your email</span></p>
+              <div className="flex flex-col items-center justify-center text-center space-y-2">
+                <div className="font-medium text-2xl text-[#272728]">
+                  <p>Verify your account</p>
+                </div>
+                <div className="flex flex-row text-xs font-normal text-[#575758]">
+                  <p>
+                    An Authentication code has been sent to{" "}
+                    <span className="text-[#5D34F3]">your email</span>
+                  </p>
+                </div>
               </div>
-            </div>
             </div>
 
             <div>
@@ -59,7 +133,7 @@ const Verify = () => {
                   <div className="flex flex-row items-center justify-between mx-auto w-full max-w-xs">
                     {otp.code.map((value, index) => (
                       <input
-                        className="w-16 h-16 flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-yellow-300"
+                        className="w-16 h-16 flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-yellow-300 text-gray-500"
                         type="text"
                         name="code"
                         id=""
@@ -74,26 +148,36 @@ const Verify = () => {
                   </div>
 
                   <div className="flex flex-col space-y-5">
-                  <div >
-                    <button className="flex items-center p-4 justify-center text-white text-xs w-full  rounded-xl bg-[#5D34F3]"  type="submit"
-                        onClick={() =>
-                          alert("Enterd OTP is " + otp.code.join(""))
-                        }>
-                      Submit
-                    </button>
-                  </div>
-                    
+                    <div>
+                      <button
+                        disabled={loading}
+                        className="flex items-center p-4 justify-center text-white text-xs w-full  rounded-xl bg-[#5D34F3]"
+                        type="submit"
+                      >
+                        {loading ? <Loader /> : "Submit"}
+                      </button>
+                    </div>
 
                     <div className="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
                       <p>Didn't receive code?</p>{" "}
                       <a
-                        className="flex flex-row items-center text-[#5D34F3]"
                         href="http://"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         Resend
                       </a>
+                      {isLoading ? (
+                        <span class="text-rose-600">Loading...</span>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={handleResendOTP}
+                          className="flex flex-row items-center text-[#5D34F3]"
+                        >
+                          Resend
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -103,7 +187,7 @@ const Verify = () => {
         </div>
       </div>
       <style jsx>{`
-         .container {
+        .container {
           position: relative;
         }
 
@@ -113,7 +197,6 @@ const Verify = () => {
           background-position: center;
           color: white; /* Text color */
           width: 100%;
-         
         }
         .background-image::before {
           content: "";
@@ -133,7 +216,6 @@ const Verify = () => {
           position: relative;
           z-index: 1; /* Ensure text appears above the overlay */
         }
-       
       `}</style>
     </div>
   );
