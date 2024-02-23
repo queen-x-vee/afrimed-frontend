@@ -25,7 +25,9 @@ function ChatComponent() {
         ...prevMessages,
         { text: AIResponse, sender: "AI" },
       ]);
-      storeMessage([...messages, { text: AIResponse, sender: "AI" }]);
+
+
+      storeMessage([...messages, { text: AIResponse, sender: "AI" }]); // save to localstorage
     }
   }, [aiResponse, storeMessage]);
 

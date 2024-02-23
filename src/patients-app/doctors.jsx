@@ -57,7 +57,7 @@ const recentPatients = [
 ];
 
 const Doctors = () => {
-  const [availability, setAvailability] = React.useState(true);
+  // const [availability, setAvailability] = React.useState(true);
   
 
   // const declineAppointment = () => {
@@ -120,13 +120,16 @@ const Doctors = () => {
                       </span>
                       <span className="flex  justify-center items-center">
                       <div
-                                className={
-                                  availability
-                                    ? "bg-[#DDFFEC] text-[#0A9D4C] py-1.5 px-2.5 rounded "
-                                    : "bg-[#FEEEEF] text-[#FF5363] py-1.5 px-2.5 rounded"
-                                }
+                                // className={
+                                //   availaty
+                                //     ? "bg-[#DDFFEC] text-[#0A9D4C] py-1.5 px-2.5 rounded "
+                                //     : "bg-[#FbiliEEEEF] text-[#FF5363] py-1.5 px-2.5 rounded"
+                                // }
+
+                                className="bg-[#DDFFEC] text-[#0A9D4C] py-1.5 px-2.5 rounded "
                               >
-                                {availability ? "Accepted" : "Declined"}
+                                {/* {availability ? "Accepted" : "Declined"} */}
+                                Accepted
                               </div>
                       </span>
                       <span className="flex  justify-between items-center">
