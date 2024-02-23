@@ -14,7 +14,7 @@ const PatientsDashboard = () => {
   const navigate = useNavigate();
   // const login = useAuthStore((state) => state.login);
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
-  // const user = useAuthStore((state) => state.user);
+  const user = useAuthStore((state) => state.user);
   const [imagePreview, setImagePreview] = useState(null);
   const [profileImage, setProfileImage] = useState("");
 
@@ -34,6 +34,8 @@ const PatientsDashboard = () => {
   useEffect(() => {
     if (!isLoggedIn) {
       navigate("/login");
+    } else {
+      navigate(user?.type === "patient" ? "/patient" : "/doctor");
     }
   }, [isLoggedIn, navigate]);
 
