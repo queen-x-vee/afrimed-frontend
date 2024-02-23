@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import PatientNavbar from "../components/patients-components/PatientNavbar";
 import Profile from '../assests/doctors-dashboard-assets/doctorsprofilepic.svg'
+import Video from '../assests/messages/message-video.svg'
+import Phone from '../assests/messages/message-phone.svg'
+import Actions from '../assests/messages/message-actions.svg'
 
 function MessagePage() {
   const [messages, setMessages] = useState([]);
@@ -49,6 +52,12 @@ function MessagePage() {
                   </div>
                 </div>
               </div>
+              <span className="flex  justify-between items-center gap-2">
+              <img src={Phone} alt="phone" />
+                        <img src={Video} alt="video" />
+                        
+                        <img src={Actions} alt="actions" />
+                      </span>
             </nav>
           
           {/* Chat messages */}
