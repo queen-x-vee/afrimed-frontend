@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PatientNavbar from "../components/patients-components/PatientNavbar";
 import "../index.css";
 import PatientTopNavbar from "../components/patients-components/PatientTopNavbar";
