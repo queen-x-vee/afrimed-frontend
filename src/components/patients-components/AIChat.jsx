@@ -29,7 +29,7 @@ function ChatComponent() {
 
       storeMessage([...messages, { text: AIResponse, sender: "AI" }]); // save to localstorage
     }
-  }, [aiResponse, storeMessage]);
+  }, [aiResponse, storeMessage, messages]);
 
   const handleMessageChange = (event) => {
     setNewMessage(event.target.value);
