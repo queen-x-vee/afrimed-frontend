@@ -60,14 +60,17 @@ const Doctors = () => {
   const [availability, setAvailability] = React.useState(true);
   
 
-  const declineAppointment = () => {
-    setAvailability(false);
+  // const declineAppointment = () => {
+  //   setAvailability(false);
    
-  };
-  const acceptAppointment = () => {
-    setAvailability(true);
+  // };
+  // const acceptAppointment = () => {
+  //   setAvailability(true);
     
-  };
+  // };
+
+
+
   return (
     <>
       <div className=" h-full flex m-0 p-0">

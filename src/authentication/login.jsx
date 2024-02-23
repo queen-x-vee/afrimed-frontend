@@ -11,6 +11,7 @@ const Login = () => {
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   const user = useAuthStore((state) => state.user);
   const storeToken = useAuthStore((state) => state.storeToken);
+
   const [loading, setLoading] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const [message, setMessage] = useState("");
@@ -25,7 +26,7 @@ const Login = () => {
     if (isLoggedIn) {
       navigate(user.type === "patient" ? "/patient" : "/doctor");
     }
-  }, []);
+  }, [isLoggedIn, navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -65,7 +66,6 @@ const Login = () => {
         storeToken(token.access);
         login(data);
         navigate(data.type === "patient" ? "/patient" : "/doctor");
-        console.log(data);
         setLoading(false);
       } else {
         setLoading(false);

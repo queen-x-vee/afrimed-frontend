@@ -12,9 +12,9 @@ import { useNavigate } from "react-router-dom";
 
 const PatientsDashboard = () => {
   const navigate = useNavigate();
-  const login = useAuthStore((state) => state.login);
+  // const login = useAuthStore((state) => state.login);
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
-  const user = useAuthStore((state) => state.user);
+  // const user = useAuthStore((state) => state.user);
   const [imagePreview, setImagePreview] = useState(null);
   const [profileImage, setProfileImage] = useState("");
 

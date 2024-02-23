@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
+import useMessage from "./messageStore";
 
 const useAuthStore = create(
   devtools(
@@ -28,6 +29,8 @@ const useAuthStore = create(
             user: null,
             accessToken: "",
           }));
+
+          useMessage.getState().clearMessage();
         },
       }),
       { name: "profile" }
