@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Logo from "../assests/authentication/logo.svg";
-import Loader from "../components/Loader";
-import MessageAlert from "../components/MessageAlert";
-import { useLocation, useNavigate } from "react-router-dom";
+// import Loader from "../components/Loader";
+// import MessageAlert from "../components/MessageAlert";
+// import { useLocation } from "react-router-dom";
 
 const Verify = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const email = location.state?.formData?.email;
-  const [loading, setLoading] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
-  const [message, setMessage] = useState("");
-  const [messageID, setMessageID] = useState("");
+  // const navigate = useNavigate();
+  // const location = useLocation();
+  // const email = location.state?.formData?.email;
+  // const [loading, setLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [showMessage, setShowMessage] = useState(false);
+  // const [message, setMessage] = useState("");
+  // const [messageID, setMessageID] = useState("");
   const [otp, setOtp] = useState({
     code: ["", "", "", ""],
   });
 
-  useEffect(() => {
-    if (!email) {
-      navigate("/login");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!email) {
+  //     navigate("/login");
+  //   }
+  // }, []);
 
   const handleInputChange = (event, index) => {
     const { value } = event.target;
@@ -32,72 +32,72 @@ const Verify = () => {
       event.target.nextSibling.focus();
     }
   };
-  const joinedOtp = otp.code.join("");
+  // const joinedOtp = otp.code.join("");
 
   // ----------- Handle Verify OTP ---------------------
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);
+    // setLoading(true);
 
-    try {
-      const res = await (
-        await fetch(`https://api-afrimed.vercel.app/api/auth/otp/verify/`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ otp: joinedOtp }),
-        })
-      ).json();
+    // try {
+    //   const res = await (
+    //     await fetch(`https://api-afrimed.vercel.app/api/auth/otp/verify/`, {
+    //       method: "POST",
+    //       headers: {
+    //         "content-type": "application/json",
+    //       },
+    //       body: JSON.stringify({ otp: joinedOtp }),
+    //     })
+    //   ).json();
 
-      if (!res.success) {
-        throw res;
-      }
+    //   if (!res.success) {
+    //     throw res;
+    //   }
 
-      setLoading(false);
+    //   setLoading(false);
 
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-      setMessage(Object.values(error)[0]);
-      setMessageID("declineAlert");
-      setShowMessage(true);
-      setLoading(false);
-    }
+    //   console.log(res);
+    // } catch (error) {
+    //   console.log(error);
+    //   setMessage(Object.values(error)[0]);
+    //   setMessageID("declineAlert");
+    //   setShowMessage(true);
+    //   setLoading(false);
+    // }
   };
 
   // ----------- Handle Request New OTP -----------------
   const handleResendOTP = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    try {
-      const res = await (
-        await fetch(`https://api-afrimed.vercel.app/api/auth/otp/verify/`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ email: email }),
-        })
-      ).json();
+    // setIsLoading(true);
+    // try {
+    //   const res = await (
+    //     await fetch(`https://api-afrimed.vercel.app/api/auth/otp/verify/`, {
+    //       method: "POST",
+    //       headers: {
+    //         "content-type": "application/json",
+    //       },
+    //       body: JSON.stringify({ email: email }),
+    //     })
+    //   ).json();
 
-      console.log(res);
-      if (!res.success) {
-        throw res;
-      }
+    //   console.log(res);
+    //   if (!res.success) {
+    //     throw res;
+    //   }
 
-      console.log(res);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-      setIsLoading(false);
-    }
+    //   console.log(res);
+    //   setIsLoading(false);
+    // } catch (error) {
+    //   console.log(error);
+    //   setIsLoading(false);
+    // }
   };
 
   return (
     <div className=" w-full ">
       {/* ------ Alert Component ---------- */}
-      {showMessage ? (
+      {/* {showMessage ? (
         <MessageAlert
           data={{ message, messageID }}
           onDurationChange={setTimeout(() => {
@@ -106,7 +106,7 @@ const Verify = () => {
         />
       ) : (
         ""
-      )}
+      )} */}
       <div className=" background-image w-full h-screen flex justify-center items-center">
         <div className="sub-text bg-white px-6 md:px-20 pt-10 pb-9 shadow-xl mx-auto w-full max-w-lg rounded-2xl">
           <div className=" mx-auto flex w-full max-w-md flex-col space-y-16">
@@ -150,11 +150,11 @@ const Verify = () => {
                   <div className="flex flex-col space-y-5">
                     <div>
                       <button
-                        disabled={loading}
+                        // disabled={loading}
                         className="flex items-center p-4 justify-center text-white text-xs w-full  rounded-xl bg-[#5D34F3]"
                         type="submit"
                       >
-                        {loading ? <Loader /> : "Submit"}
+                        {"Submit"}
                       </button>
                     </div>
 
@@ -167,7 +167,7 @@ const Verify = () => {
                       >
                         Resend
                       </a>
-                      {isLoading ? (
+                      {/* {isLoading ? (
                         <span class="text-rose-600">Loading...</span>
                       ) : (
                         <button
@@ -177,7 +177,16 @@ const Verify = () => {
                         >
                           Resend
                         </button>
-                      )}
+                      )} */}
+                      {
+                        <button
+                          type="button"
+                          onClick={handleResendOTP}
+                          className="flex flex-row items-center text-[#5D34F3]"
+                        >
+                          Resend
+                        </button>
+                      }
                     </div>
                   </div>
                 </div>
