@@ -7,6 +7,7 @@ const useAuthStore = create(
       (set) => ({
         isLoggedIn: false,
         user: null,
+        accessToken: "",
 
         login: (userData) =>
           set((state) => ({
@@ -14,11 +15,18 @@ const useAuthStore = create(
             user: userData,
           })),
 
+        storeToken: (token) => {
+          set((state) => ({
+            accessToken: token,
+          }));
+        },
+
         logout: () => {
           // Clear user state
           set(() => ({
             isLoggedIn: false,
             user: null,
+            accessToken: "",
           }));
         },
       }),

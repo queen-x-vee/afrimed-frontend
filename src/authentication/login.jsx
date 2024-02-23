@@ -10,6 +10,7 @@ const Login = () => {
   const login = useAuthStore((state) => state.login);
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   const user = useAuthStore((state) => state.user);
+  const storeToken = useAuthStore((state) => state.storeToken);
   const [loading, setLoading] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const [message, setMessage] = useState("");
@@ -61,6 +62,7 @@ const Login = () => {
           })
         ).json();
 
+        storeToken(token.access);
         login(data);
         navigate(data.type === "patient" ? "/patient" : "/doctor");
         console.log(data);

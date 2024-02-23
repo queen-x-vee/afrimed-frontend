@@ -37,3 +37,12 @@
   color: red;
   border-top: 2px solid red;
 }
+
+.rounded-bl-lg-16 {
+  border-bottom-left-radius: 16px;
+}
+
+.rounded-br-lg-16 {
+  border-bottom-right-radius: 16px;
+  color: #FFF;
+}
