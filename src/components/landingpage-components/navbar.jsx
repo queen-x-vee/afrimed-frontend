@@ -16,7 +16,7 @@ const MobileNavbar = () => {
   };
 
   return (
-    <nav className={"flex flex-col lg:flex-row gap-4 justify-between px-2  md:px-24"}>
+    <nav className={"flex flex-col lg:flex-row gap-4 justify-between px-2  md:px-24 bg-[#FCFCF7]"}>
       <div className="flex justify-around items-center text-sm font-semibold gap-3 md:gap-12">
         <div>
           <Link to='/'>
