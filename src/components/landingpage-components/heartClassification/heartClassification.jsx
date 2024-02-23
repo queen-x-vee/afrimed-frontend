@@ -212,6 +212,14 @@ const HeartClassification = () => {
             />
           </div>
         </div>
+        <div className="items-center justify-center flex flex-wrap">
+        <button
+          
+          className="text-base md:text-xl font-bold py-3 px-6 md:py-7 md:px-20 text-white bg-[#5D34F3] rounded-lg mt-10 mb-16 md:mb-32"
+        >
+      Get your classification
+        </button>
+        </div>
       </form>
 
       <Footer />
