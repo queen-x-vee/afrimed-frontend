@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../assests/authentication/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
-import useAuthStore from "../stores/authStore";
 import Loader from "../components/Loader";
 import MessageAlert from "../components/MessageAlert";
+import useAuthStore from "../stores/authStore";
 
 const Login = () => {
   const navigate = useNavigate();
+  const login = useAuthStore((state) => state.login);
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  const user = useAuthStore((state) => state.user);
+  const storeToken = useAuthStore((state) => state.storeToken);
   const [loading, setLoading] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const [message, setMessage] = useState("");
@@ -15,6 +19,13 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  // -------- Redirect user if logged in -----------------
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate(user.type === "patient" ? "/patient" : "/doctor");
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,7 +41,7 @@ const Login = () => {
 
     try {
       const res = await (
-        await fetch(`https://api-afrimed.vercel.app/api/auth/otp/generate/`, {
+        await fetch(`https://api-afrimed.vercel.app/api/auth/jwt/create/`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -39,12 +50,27 @@ const Login = () => {
         })
       ).json();
 
-      if (!res.success) {
+      const token = res;
+
+      if (token?.access) {
+        const data = await (
+          await fetch(`https://api-afrimed.vercel.app/api/auth/users/me/`, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token.access}`,
+            },
+          })
+        ).json();
+
+        storeToken(token.access);
+        login(data);
+        navigate(data.type === "patient" ? "/patient" : "/doctor");
+        console.log(data);
+        setLoading(false);
+      } else {
+        setLoading(false);
         throw res;
       }
-
-      navigate("/verify");
-      setLoading(false);
     } catch (error) {
       setMessage(Object.values(error)[0]);
       setMessageID("declineAlert");

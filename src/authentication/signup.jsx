@@ -9,6 +9,7 @@ const Signup = () => {
   const navigate = useNavigate();
   const login = useAuthStore((state) => state.login);
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  const user = useAuthStore((state) => state.user);
   const [isLoading, setIsLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
@@ -35,7 +36,7 @@ const Signup = () => {
   // -------- Redirect user if logged in -----------------
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/patient");
+      navigate(user.type === "patient" ? "/patient" : "/doctor");
     }
   }, []);
 
