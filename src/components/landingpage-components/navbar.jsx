@@ -19,7 +19,8 @@ const MobileNavbar = () => {
     <nav className={"flex flex-col lg:flex-row gap-4 justify-between px-2  md:px-24"}>
       <div className="flex justify-around items-center text-sm font-semibold gap-3 md:gap-12">
         <div>
-          <img src={Logo} alt="logo" className="w-12 h-12 md:w-24 md:h-24" />
+          <Link to='/'>
+          <img src={Logo} alt="logo" className="w-12 h-12 md:w-24 md:h-24" /></Link>
         </div>
         <span className="li text-xs md:text-sm ">
           <a onClick={() => scrollToSection("home")} href="#home">
