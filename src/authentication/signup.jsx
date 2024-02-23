@@ -38,7 +38,7 @@ const Signup = () => {
     if (isLoggedIn) {
       navigate(user.type === "patient" ? "/patient" : "/doctor");
     }
-  }, [isLoggedIn, navigate]);
+  }, [isLoggedIn, navigate, user?.type]);
 
   // ------------- Reuseable Registration Function -------------------------
   const submitFormData = async (formData, endpoint, onSuccess, onError) => {

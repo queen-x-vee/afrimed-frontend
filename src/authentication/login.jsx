@@ -26,7 +26,7 @@ const Login = () => {
     if (isLoggedIn) {
       navigate(user.type === "patient" ? "/patient" : "/doctor");
     }
-  }, [isLoggedIn, navigate]);
+  }, [isLoggedIn, navigate, user?.type]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
