@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PatientNavbar from "../components/patients-components/PatientNavbar";
 import "../index.css";
 import PatientTopNavbar from "../components/patients-components/PatientTopNavbar";
@@ -19,7 +19,7 @@ const PatientsDashboard = () => {
   const [profileImage, setProfileImage] = useState("");
 
   // -------- Grab Image ------------------
-  const handleImageChange = (e) => {
+  /*const handleImageChange = (e) => {
     setProfileImage(e.target.files[0]);
     setImagePreview(URL.createObjectURL(e.target.files[0]));
 
@@ -28,7 +28,7 @@ const PatientsDashboard = () => {
 
   const data = {
     image: profileImage,
-  };
+  };*/
 
   // -------- Redirect user if logged in -----------------
   useEffect(() => {
@@ -39,10 +39,14 @@ const PatientsDashboard = () => {
     }
   }, [isLoggedIn, navigate]);
 
-  const handleSubmit = async (e) => {
+  /*const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(data);
-  };
+  };*/
+  const handleSubmit = async (e) => {
+    alert('feauture coming soon');
+    e.preventDefault();
+  }
 
   return (
     <>
@@ -59,6 +63,7 @@ const PatientsDashboard = () => {
                       <button
                         className="bg-[#5D34F3] text-white py-2.5 px-6 font-medium text-base rounded-[20px]"
                         onClick={handleSubmit}
+                        
                       >
                         Upload Image
                       </button>
@@ -72,25 +77,32 @@ const PatientsDashboard = () => {
                     <div className="bg-white rounded-lg">
                       <div className="flex items-center justify-center w-full mb-5">
                         <div className=" w-full h-[40vh] p-4">
-                          {imagePreview && (
+
+                        <img
+                              src={ 'https://storage.autogon.ai/a57e9050-0064-4b37-951e-b4eea5f3afa8.png'}
+                              alt="preview"
+                              className="w-full h-full"
+                            />
+                          {/*imagePreview && (
                             <img
                               src={imagePreview && imagePreview}
                               alt="preview"
                               className="w-full h-full"
                             />
-                          )}
+                          )*/}
                         </div>
                       </div>
                       <div className="flex items-center justify-center w-full mb-5">
-                        <input
+                        {/*<input
                           id="dropzone-file"
                           type="file"
                           accept="image/png, image/jpeg, image/jpg"
                           name="image"
                           className="hidden"
                           onChange={handleImageChange}
-                        />
-                        <label
+                        />*/}
+                       <button onClick={handleSubmit}>
+                       <label
                           htmlFor="dropzone-file"
                           className="text-[#1A73E8] flex items-center py-4 px-8 border border-[#DADCE0] "
                         >
@@ -108,14 +120,11 @@ const PatientsDashboard = () => {
                           </svg>
                           Add file
                         </label>
+                       </button>
                       </div>
                     </div>
-                    <div className="bg-white p-4 rounded-lg">
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Harum accusamus omnis animi rem vel at provident. Nostrum
-                      consequuntur facilis, sunt inventore incidunt possimus
-                      voluptas, dolor, ullam consequatur placeat cupiditate
-                      temporibus!
+                    <div className="bg-white p-4 rounded-lg font-medium text-lg">
+                    Hemorrhage Detected
                     </div>
                   </div>
                   <div className="bg-[#5D34F3] rounded-2xl flex justify-between items-center p-3 md:p-8 my-4 md:my-7">

@@ -129,7 +129,7 @@ const Doctors = () => {
                                 className="bg-[#DDFFEC] text-[#0A9D4C] py-1.5 px-2.5 rounded "
                               >
                                 {/* {availability ? "Accepted" : "Declined"} */}
-                                Accepted
+                                Available
                               </div>
                       </span>
                       <span className="flex  justify-between items-center">

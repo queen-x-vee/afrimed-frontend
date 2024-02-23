@@ -12,6 +12,7 @@ import Doctors from "./patients-app/doctors";
 import MessagePage from "./patients-app/messages";
 import AIComponent from "./doctors-app/aimedic";
 import HeartClassification from "./components/landingpage-components/heartClassification/heartClassification";
+import DoctorsMessage from "./doctors-app/messages";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route exact path="/doctor" element={<DoctorsDashboard />} />
       <Route exact path="/doctor-patients" element={<Patients />} />
       <Route exact path="/doctor-appointments" element={<Appointment />} />
+      <Route exact path="/doctor-messages" element={<DoctorsMessage/>} />
       <Route exact path="/doctor-ai" element={<AIComponent />} />
 
       <Route exact path="/patient" element={<PatientsDashboard />} />
