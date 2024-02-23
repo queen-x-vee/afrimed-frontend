@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../footer";
 import { Link } from "react-router-dom";
 import Logo from "../../../assests/authentication/logo.svg";
-import Dropdown from "../../../assests/landingpage/dropdown.svg";
+
 
 const HeartClassification = () => {
   return (
