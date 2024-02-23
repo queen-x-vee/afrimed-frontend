@@ -235,9 +235,9 @@ const Signup = () => {
               </form>
             </div>
           </div>
-          <div>
+          <div className="font-normal text-xs">
             <span>Already have an account?</span>
-            <Link to="/login">Login</Link>
+            <Link to="/login" className="text-[#5D34F3]">Login</Link>
           </div>
         </div>
       </div>

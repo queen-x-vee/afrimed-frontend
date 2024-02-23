@@ -29,7 +29,9 @@ function ChatComponent() {
 
       storeMessage([...messages, { text: AIResponse, sender: "AI" }]); // save to localstorage
     }
-  }, [aiResponse, storeMessage, messages]);
+  }, 
+   // eslint-disable-next-line 
+  [aiResponse, storeMessage]);
 
   const handleMessageChange = (event) => {
     setNewMessage(event.target.value);
