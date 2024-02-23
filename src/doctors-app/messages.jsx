@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PatientNavbar from "../components/patients-components/PatientNavbar";
+import Navbar from "../components/doctors-components/Navbar";
 import Profile from '../assests/doctors-dashboard-assets/doctorsprofilepic.svg'
 
 function MessagePage() {
@@ -21,7 +21,7 @@ function MessagePage() {
 
   return (
     <div className="h-full flex m-0 p-0">
-      <PatientNavbar />
+      <Navbar />
       <div className="md:ml-[20rem] w-full h-screen flex bg-[#F7F7F7]">
         <div className="sidebar">
           <div className="contacts">
