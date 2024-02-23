@@ -33,6 +33,11 @@ function MessagePage() {
         </div>
       </div>
       <div className="chat-window h-[90%] ">
+        <div>
+          <nav>
+            
+          </nav>
+        </div>
         {/* Chat messages */}
 
         <div className="bg-[#5D34F3] mb-10 px-4 py-2.5 rounded-t-2xl rounded-l-2xl rounded-r-md mr-10 md:mr-14">
