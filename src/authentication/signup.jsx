@@ -74,12 +74,13 @@ const Signup = () => {
       ).json();
 
       const resLength = Object.entries(res).length;
-      if (resLength !== 4) {
+      if (resLength < 4) {
         throw res;
       }
 
       onSuccess(res);
     } catch (error) {
+      console.log(error);
       onError(error.message ? error.message : Object.values(error)[0][0]);
     }
   };
@@ -237,7 +238,9 @@ const Signup = () => {
           </div>
           <div className="font-normal text-xs">
             <span>Already have an account?</span>
-            <Link to="/login" className="text-[#5D34F3]">Login</Link>
+            <Link to="/login" className="text-[#5D34F3]">
+              Login
+            </Link>
           </div>
         </div>
       </div>
