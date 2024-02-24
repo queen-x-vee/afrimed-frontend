@@ -15,8 +15,8 @@ const PatientsDashboard = () => {
   // const login = useAuthStore((state) => state.login);
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   const user = useAuthStore((state) => state.user);
-  const [imagePreview, setImagePreview] = useState(null);
-  const [profileImage, setProfileImage] = useState("");
+  // const [imagePreview, setImagePreview] = useState(null);
+  // const [profileImage, setProfileImage] = useState("");
 
   // -------- Grab Image ------------------
   /*const handleImageChange = (e) => {

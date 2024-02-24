@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/doctors-components/Navbar";
 import "../index.css";
 import TopNavbar from "../components/doctors-components/TopNavbar";
@@ -15,6 +15,8 @@ import FirstArticle from "../assests/doctors-dashboard-assets/firstArticle.svg";
 //import Line from "../components/graph/Line.tsx";
 import Avatar from "../assests/doctors-dashboard-assets/avatar.svg";
 import Calendar from "../components/doctors-components/Calender";
+import useAuthStore from "../stores/authStore";
+import Loader from "../components/Loader";
 
 const card = [
   {
@@ -36,7 +38,6 @@ const card = [
     backgroundColor: "bg-[#FFDFE4]",
     figure: "129",
   },
-
 ];
 
 const recentPatients = [
@@ -87,66 +88,117 @@ const recentPatients = [
   },
 ];
 
-const appointmentPatients = [
-  {
-    icon: Avatar,
-    patientName: "paul williams",
-    id: "1",
-    gender: "male",
-    age: "21",
-    lastVisited: "12/12/2021",
-    action: "Completed",
-  },
-  {
-    icon: Avatar,
-    patientName: "paul williams",
-    id: "2",
-    gender: "male",
-    age: "21",
-    lastVisited: "12/12/2021",
-    action: "Completed",
-  },
-  {
-    icon: Avatar,
-    patientName: "paul williams",
-    id: "3",
-    gender: "male",
-    age: "21",
-    lastVisited: "12/12/2021",
-    action: "Completed",
-  },
-  {
-    icon: Avatar,
-    patientName: "paul williams",
-    id: "4",
-    gender: "male",
-    age: "21",
-    lastVisited: "12/12/2021",
-    action: "Completed",
-  },
-  {
-    icon: Avatar,
-    patientName: "paul williams",
-    id: "5",
-    gender: "male",
-    age: "21",
-    lastVisited: "12/12/2021",
-    action: "Completed",
-  },
-];
+// const appointmentPatients = [
+//   {
+//     icon: Avatar,
+//     patientName: "paul williams",
+//     id: "1",
+//     gender: "male",
+//     age: "21",
+//     lastVisited: "12/12/2021",
+//     action: "Completed",
+//   },
+//   {
+//     icon: Avatar,
+//     patientName: "paul williams",
+//     id: "2",
+//     gender: "male",
+//     age: "21",
+//     lastVisited: "12/12/2021",
+//     action: "Completed",
+//   },
+//   {
+//     icon: Avatar,
+//     patientName: "paul williams",
+//     id: "3",
+//     gender: "male",
+//     age: "21",
+//     lastVisited: "12/12/2021",
+//     action: "Completed",
+//   },
+//   {
+//     icon: Avatar,
+//     patientName: "paul williams",
+//     id: "4",
+//     gender: "male",
+//     age: "21",
+//     lastVisited: "12/12/2021",
+//     action: "Completed",
+//   },
+//   {
+//     icon: Avatar,
+//     patientName: "paul williams",
+//     id: "5",
+//     gender: "male",
+//     age: "21",
+//     lastVisited: "12/12/2021",
+//     action: "Completed",
+//   },
+// ];
 
 const DoctorsDashboard = () => {
-  const [appointment, setAppointment] = React.useState(true);
+  // const [appointment, setAppointment] = React.useState(true);
   const [show, setShow] = React.useState(true);
+  const accessToken = useAuthStore((state) => state.accessToken);
+  const [appointmentRequests, setAppointmentRequests] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const declineAppointment = () => {
-    setAppointment(false);
+    // setAppointment(false);
     setShow(true);
   };
-  const acceptAppointment = () => {
-    setAppointment(true);
+
+  // ------------ Accept Appointment request --------------------
+  const acceptAppointment = async (appointment_id) => {
     setShow(true);
+    setIsLoading(true);
+    try {
+      const res = await (
+        await fetch(
+          `https://api-afrimed.vercel.app/api/appointments/practitioners/${appointment_id}/accept/`,
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({ accept: true }),
+          }
+        )
+      ).json();
+
+      console.log(res);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
   };
+
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const res = await (
+          await fetch(
+            `https://api-afrimed.vercel.app/api/appointments/practitioners/request/`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+                "content-type": "application/json",
+              },
+            }
+          )
+        ).json();
+
+        setAppointmentRequests(res?.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchDoctors();
+  }, [accessToken]);
 
   return (
     <>
@@ -202,7 +254,7 @@ const DoctorsDashboard = () => {
                       <span className="font-medium text-lg md:text-2xl">
                         Appointment Request
                       </span>
-                      <NavLink to='/appointment'>
+                      <NavLink to="/appointment">
                         <button className="font-medium text-base text-[#1E4AF0] flex items-center">
                           View all
                           <img
@@ -214,63 +266,71 @@ const DoctorsDashboard = () => {
                       </NavLink>
                     </div>
                     <div className="bg-white p-4">
-                      {appointmentPatients.map((patient) => {
-                        return (
-                          <div
-                            key={patient.id}
-                            className="flex items-center justify-between my-7 "
-                          >
-                            <div className="flex justify-center items-center gap-x-1">
-                              <img
-                                src={patient.icon}
-                                alt={patient.label}
-                                className="w-12 h-12 rounded-full"
-                              />
-                              <div className="flex flex-col justify-center items-start gap-x-1">
-                                <span className="font-medium text-lg md:text-2xl  text-[#212529]">
-                                  {patient.patientName}
-                                </span>
-                                <span className="font-normal text-base text-[#696969] flex  justify-center items-center">
-                                  {" "}
-                                  {patient.age} {patient.gender}{" "}
-                                  {patient.lastVisited}{" "}
-                                </span>
+                      {appointmentRequests?.map(
+                        ({ patient, status, id }, index) => {
+                          return (
+                            <div
+                              key={index + 1}
+                              className="flex items-center justify-between my-7 "
+                            >
+                              <div className="flex justify-center items-center gap-x-1">
+                                <img
+                                  src={Avatar}
+                                  alt={"user"}
+                                  className="w-12 h-12 rounded-full"
+                                />
+                                <div className="flex flex-col justify-center items-start gap-x-1">
+                                  <span className="font-medium text-lg md:text-2xl  text-[#212529]">
+                                    {patient}
+                                  </span>
+                                  <span className="font-normal text-base text-[#696969] flex  justify-center items-center">
+                                    30 Male
+                                    {/* {patient.lastVisited}{" "} */}
+                                  </span>
+                                </div>
                               </div>
+
+                              {show && (
+                                <div className="flex gap-x-1">
+                                  <div className="py-[9x] px-1.5 bg-[#DDFFEC]  flex items-center justify-center">
+                                    {isLoading ? (
+                                      <Loader />
+                                    ) : (
+                                      <img
+                                        src={Accept}
+                                        alt="accept"
+                                        onClick={() => acceptAppointment(id)}
+                                      />
+                                    )}
+                                  </div>
+                                  <div className="py-[9x] px-1.5 bg-[#FEEEEF] flex items-center justify-center">
+                                    <img
+                                      src={Decline}
+                                      alt="decline"
+                                      onClick={declineAppointment}
+                                    />
+                                  </div>
+                                </div>
+                              )}
+
+                              {show && (
+                                <div
+                                  className={
+                                    status === "pending"
+                                      ? "bg-yellow-200 text-yellow-600 py-1.5 px-2.5 rounded "
+                                      : status === "approved"
+                                      ? "bg-[#DDFFEC] text-[#0A9D4C] py-1.5 px-2.5 rounded "
+                                      : "bg-[#FEEEEF] text-[#FF5363] py-1.5 px-2.5 rounded"
+                                  }
+                                >
+                                  {/* {appointment ? "Accepted" : "Declined"} */}
+                                  {status}
+                                </div>
+                              )}
                             </div>
-
-                            {!show && (
-                              <div className="flex gap-x-1">
-                                <div className="py-[9x] px-1.5 bg-[#DDFFEC]  flex items-center justify-center">
-                                  <img
-                                    src={Accept}
-                                    alt="accept"
-                                    onClick={acceptAppointment}
-                                  />
-                                </div>
-                                <div className="py-[9x] px-1.5 bg-[#FEEEEF] flex items-center justify-center">
-                                  <img
-                                    src={Decline}
-                                    alt="decline"
-                                    onClick={declineAppointment}
-                                  />
-                                </div>
-                              </div>
-                            )}
-
-                            {show && (
-                              <div
-                                className={
-                                  appointment
-                                    ? "bg-[#DDFFEC] text-[#0A9D4C] py-1.5 px-2.5 rounded "
-                                    : "bg-[#FEEEEF] text-[#FF5363] py-1.5 px-2.5 rounded"
-                                }
-                              >
-                                {appointment ? "Accepted" : "Declined"}
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
+                          );
+                        }
+                      )}
                     </div>
                   </div>
                   <div className="bg-white md:h-5/6 p-3 rounded-lg">
@@ -283,7 +343,7 @@ const DoctorsDashboard = () => {
                       <span className="font-medium text-lg md:text-2xl">
                         Recent Patients
                       </span>
-                      <NavLink to='/patients'>
+                      <NavLink to="/patients">
                         <button className="font-medium text-base text-[#1E4AF0] flex items-center">
                           View all
                           <img
@@ -333,7 +393,7 @@ const DoctorsDashboard = () => {
                           <span className="flex  justify-center items-center">
                             {patient.disease}
                           </span>
-                          
+
                           <span className="flex  justify-center items-center">
                             {patient.action}
                           </span>
@@ -341,29 +401,37 @@ const DoctorsDashboard = () => {
                       );
                     })}
                   </div>
-                  <div >
-                    <div className="font-bold text-3xl">
-                      Articles
-                    </div>
+                  <div>
+                    <div className="font-bold text-3xl">Articles</div>
                     <div className="bg-white rounded-2xl border border-[#F0F0F0] p-4 mb-3 md:mb-5">
-
-                      <div> <span className="px-2 mr-4 bg-[#BFEBBF] rounded-full"></span> <span className="font-normal text-xs text-black/40">DAILY READ</span></div>
-                      <div className="font-semibold text-[#000000] text-base md:text-lg my-5 md-my-7" >Tablets provisions in Lagos</div>
+                      <div>
+                        {" "}
+                        <span className="px-2 mr-4 bg-[#BFEBBF] rounded-full"></span>{" "}
+                        <span className="font-normal text-xs text-black/40">
+                          DAILY READ
+                        </span>
+                      </div>
+                      <div className="font-semibold text-[#000000] text-base md:text-lg my-5 md-my-7">
+                        Tablets provisions in Lagos
+                      </div>
                       <div>
                         <img src={FirstArticle} alt="article" />
                       </div>
-
-
                     </div>
                     <div className="bg-white rounded-2xl border border-[#F0F0F0] p-4">
-
-                      <div> <span className="px-2 mr-4 bg-[#BFEBBF] rounded-full"></span> <span className="font-normal text-xs text-black/40">DAILY READ</span></div>
-                      <div className="font-semibold text-[#000000] text-base md:text-lg my-5 md-my-7" >Tablets provisions in Lagos</div>
+                      <div>
+                        {" "}
+                        <span className="px-2 mr-4 bg-[#BFEBBF] rounded-full"></span>{" "}
+                        <span className="font-normal text-xs text-black/40">
+                          DAILY READ
+                        </span>
+                      </div>
+                      <div className="font-semibold text-[#000000] text-base md:text-lg my-5 md-my-7">
+                        Tablets provisions in Lagos
+                      </div>
                       <div>
                         <img src={FirstArticle} alt="article" />
                       </div>
-
-
                     </div>
                   </div>
                 </div>
