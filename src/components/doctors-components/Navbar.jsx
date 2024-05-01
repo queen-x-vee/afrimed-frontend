@@ -43,7 +43,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.clear();
     useAuthStore.getState().logout();
-    history('/login');
+    history('/');
   };
   return (
     <nav className="hidden md:flex flex-col bg-[#fffff] h-full md:w-80 fixed top-0 left-0 overflow-y-auto shadow-sm px-4 md:px-10">

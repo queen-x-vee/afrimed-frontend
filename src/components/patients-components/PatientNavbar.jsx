@@ -37,7 +37,7 @@ const PatientNavbar = () => {
   const handleLogout = () => {
     localStorage.clear();
     useAuthStore.getState().logout();
-    history('/login');
+    history('/');
   };
 
   return (
