@@ -1,7 +1,8 @@
 import React from "react";
 import Notifications from "../../assests/doctors-dashboard-assets/notificationbell.svg";
 import Profile from "../../assests/doctors-dashboard-assets/doctorsprofilepic.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import useAuthStore from "../../stores/authStore";
 
 const pageRoutes = [
   {
@@ -27,6 +28,12 @@ const pageRoutes = [
 ];
 
 const TopNavbar = () => {
+  const history = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    useAuthStore.getState().logout();
+    history('/');
+  };
   return (
     <>
     <nav>
@@ -47,6 +54,11 @@ const TopNavbar = () => {
           })
         }
       </div>
+      <div className="flex justify-end items-start">
+        <button className="text-black text-xs mb-2 mr-2 p-1 border-2 border-[#5D34F3] rounded-lg" onClick={handleLogout}>
+          Logout
+        </button>
+        </div>
     </nav>
 
     <div className="flex flex-row justify-between items-center p-4 md:px-11 md:py-6 bg-[#FFFFFF] mb-5 md:mb-10">
