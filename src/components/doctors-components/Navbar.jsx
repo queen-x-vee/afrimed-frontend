@@ -7,6 +7,7 @@ import Message from "../../assests/doctors-dashboard-assets/message.svg";
 import Logo from "../../assests/doctors-dashboard-assets/logo.svg";
 import AI from "../../assests/doctors-dashboard-assets/aimedic.svg";
 import { NavLink , useNavigate} from "react-router-dom";
+import useAuthStore from "../../stores/authStore";
 
 
 const socialRoutes = [
@@ -41,7 +42,8 @@ const Navbar = () => {
   const history = useNavigate();
   const handleLogout = () => {
     localStorage.clear();
-    history('/');
+    useAuthStore.getState().logout();
+    history('/login');
   };
   return (
     <nav className="hidden md:flex flex-col bg-[#fffff] h-full md:w-80 fixed top-0 left-0 overflow-y-auto shadow-sm px-4 md:px-10">

@@ -5,6 +5,7 @@ import Message from "../../assests/doctors-dashboard-assets/message.svg";
 import Reports from "../../assests/doctors-dashboard-assets/reports.svg";
 import Logo from "../../assests/doctors-dashboard-assets/logo.svg";
 import { NavLink, useNavigate} from "react-router-dom";
+import useAuthStore from "../../stores/authStore";
 
 
 const socialRoutes = [
@@ -35,7 +36,8 @@ const PatientNavbar = () => {
   const history = useNavigate();
   const handleLogout = () => {
     localStorage.clear();
-    history('/');
+    useAuthStore.getState().logout();
+    history('/login');
   };
 
   return (
