@@ -3,10 +3,10 @@ import Dashboard from "../../assests/doctors-dashboard-assets/dashboard.svg";
 import Appointment from "../../assests/doctors-dashboard-assets/appointments.svg";
 import Patient from "../../assests/doctors-dashboard-assets/patient.svg";
 import Message from "../../assests/doctors-dashboard-assets/message.svg";
-//import Reports from "../../assests/doctors-dashboard-assets/reports.svg";
 import Logo from "../../assests/doctors-dashboard-assets/logo.svg";
 import AI from "../../assests/doctors-dashboard-assets/aimedic.svg";
 import { NavLink , useNavigate} from "react-router-dom";
+//import Reports from "../../assests/doctors-dashboard-assets/reports.svg";
 import useAuthStore from "../../stores/authStore";
 
 
@@ -43,7 +43,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.clear();
     useAuthStore.getState().logout();
-    history('/login');
+    history('/');
   };
   return (
     <nav className="hidden md:flex flex-col bg-[#fffff] h-full md:w-80 fixed top-0 left-0 overflow-y-auto shadow-sm px-4 md:px-10">
