@@ -6,7 +6,8 @@ import Message from "../../assests/doctors-dashboard-assets/message.svg";
 //import Reports from "../../assests/doctors-dashboard-assets/reports.svg";
 import Logo from "../../assests/doctors-dashboard-assets/logo.svg";
 import AI from "../../assests/doctors-dashboard-assets/aimedic.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink , useNavigate} from "react-router-dom";
+import useAuthStore from "../../stores/authStore";
 
 
 const socialRoutes = [
@@ -38,6 +39,12 @@ const socialRoutes = [
 ];
 
 const Navbar = () => {
+  const history = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    useAuthStore.getState().logout();
+    history('/login');
+  };
   return (
     <nav className="hidden md:flex flex-col bg-[#fffff] h-full md:w-80 fixed top-0 left-0 overflow-y-auto shadow-sm px-4 md:px-10">
       <div className="flex items-center justify-center mt-8 mb-14">
@@ -71,6 +78,11 @@ const Navbar = () => {
       </div>
 
       <hr className="border-b border-gray-300 w-full my-4" />
+      <div className="flex items-center justify-center mt-8 mb-14">
+        <button className="text-[#696969] text-base" onClick={handleLogout}>
+          Logout
+        </button>
+        </div>
     </nav>
   );
 };
