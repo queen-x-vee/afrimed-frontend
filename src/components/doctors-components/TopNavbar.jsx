@@ -32,6 +32,12 @@ const TopNavbar = () => {
   const user = useAuthStore((state) => state.user);
   const navigate = useNavigate();
 
+  const handleLogout = () => {
+    localStorage.clear();
+    useAuthStore.getState().logout();
+    navigate("/");
+  };
+
   // -------- Redirect user if logged in -----------------
   useEffect(() => {
     if (!isLoggedIn) {
@@ -59,6 +65,14 @@ const TopNavbar = () => {
               </div>
             );
           })}
+        </div>
+        <div className="md:hidden flex items-center justify-end mr-2 mb-2">
+          <button
+            className="text-black text-xs p-2 border-2 border-[#5D34F3] rounded-lg"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
         </div>
       </nav>
 
